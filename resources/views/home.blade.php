@@ -1,8 +1,7 @@
 ﻿
-<!-- <?php
-include_once("header.php");
-?> -->
+@extends('main')
 
+@section('content')
 
 <!-- content -->
 <div class="page-content">
@@ -493,7 +492,4 @@ include_once("header.php");
         </div>
     </div>
     
-<!--     
-    <?php
-include_once("footer.php");
-?> -->
+ @endsection
