@@ -19,6 +19,11 @@
     <!-- icons
     ================================================== -->
     <link rel="stylesheet" href="..\assets\css\icons.css">
+    <style>
+        .password-match-error {
+            border-color: red !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -62,7 +67,7 @@
                                 <span class="uk-form-icon">
                                     <i class="icon-feather-lock"></i>
                                 </span>
-                                <input class="uk-input" type="password" placeholder="********" name="password">
+                                <input class="uk-input" type="password" placeholder="********" name="password" id="password" required>
                             </div>
                         </div>
                     </div>
@@ -73,8 +78,9 @@
                                 <span class="uk-form-icon">
                                     <i class="icon-feather-lock"></i>
                                 </span>
-                                <input class="uk-input" type="password" placeholder="********" name="password_confirmation">
+                                <input class="uk-input" type="password" placeholder="********" name="password_confirmation" id="password_confirmation" required>
                             </div>
+                            <span id="passwordError" style="display: none; color: red;">Passwords do not match</span>
                         </div>
                     </div>
                     <div>
