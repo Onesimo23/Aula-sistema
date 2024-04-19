@@ -1,4 +1,3 @@
-
 @include('base.header')
 
 @yield('content')
