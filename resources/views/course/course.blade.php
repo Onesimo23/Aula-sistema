@@ -18,7 +18,7 @@
         <h3> Courses (14) </h3>
 
         <div>
-            <a href="add-course.html" class="btn btn-default">
+            <a href="{{route('addcourse')}}" class="btn btn-default">
                 <i class="uil-plus"> </i> New course
             </a>
         </div>

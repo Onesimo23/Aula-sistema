@@ -15,14 +15,14 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="assets\css\style.css">
-    <link rel="stylesheet" href="assets\css\night-mode.css">
-    <link rel="stylesheet" href="assets\css\framework.css">
-    <link rel="stylesheet" href="assets\css\bootstrap.css">
+    <link rel="stylesheet" href="{{asset('assets\css\style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets\css\night-mode.css')}}">
+    <link rel="stylesheet" href="{{asset('assets\css\framework.css')}}">
+    <link rel="stylesheet" href="{{asset('assets\css\bootstrap.css')}}">
 
     <!-- icons
     ================================================== -->
-    <link rel="stylesheet" href="assets\css\icons.css">
+    <link rel="stylesheet" href="{{asset('assets\css\icons.css')}}">
 
 
 </head>
@@ -47,7 +47,7 @@
 
                         <!-- logo -->
                         <a href="dashboard.html" class="logo">
-                            <img src="..\assets\images\logo-dark.svg" alt="">
+                            <img src="{{asset('assets\images\logo-dark.svg')}}" alt="">
                             <span> Courseplus</span>
                         </a>
 
@@ -96,7 +96,7 @@
                                         <li class="notifications-not-read">
                                             <a href="course-intro.html">
                                                 <span class="notification-image">
-                                                    <img src="assets\images\course\1.png" alt=""> </span>
+                                                    <img src="{{asset('assets\images\course\1.png')}}" alt=""> </span>
                                                 <span class="notification-text">
                                                     <span class="course-title">Ultimate Web Designer & Web Developer
                                                     </span>
@@ -135,7 +135,7 @@
                                         <li>
                                             <a href="course-intro.html">
                                                 <span class="notification-image">
-                                                    <img src="assets\images\course\3.png" alt=""> </span>
+                                                    <img src="{{asset('assets\images\course\3.png')}}" alt=""> </span>
                                                 <span class="notification-text">
                                                     <span class="course-title">The Complete JavaScript Course Build Real
                                                         Projects !</span>
@@ -174,7 +174,7 @@
                                         <li>
                                             <a href="course-intro.html">
                                                 <span class="notification-image">
-                                                    <img src="assets\images\course\2.png" alt=""> </span>
+                                                    <img src="{{asset('assets\images\course\2.png')}}" alt=""> </span>
                                                 <span class="notification-text">
                                                     <span class="course-title">Learn Angular Fundamentals From The
                                                         Beginning</span>
@@ -212,7 +212,7 @@
                                         <li>
                                             <a href="course-intro.html">
                                                 <span class="notification-image">
-                                                    <img src="assets\images\course\1.png" alt=""> </span>
+                                                    <img src="{{asset('assets\images\course\1.png')}}" alt=""> </span>
                                                 <span class="notification-text">
                                                     <span class="course-title">Ultimate Web Designer & Web Developer
                                                     </span>
@@ -329,7 +329,7 @@
                             <!-- profile-icon-->
 
                             <a href="#" class="header-widget-icon profile-icon">
-                                <img src="..\assets\images\avatars\avatar-2.jpeg" alt="" class="header-profile-icon">
+                                <img src="{{asset('assets\images\avatars\avatar-2.jpeg')}}" alt="" class="header-profile-icon">
                             </a>
 
                             <div uk-dropdown="pos: top-right ;mode:click" class="dropdown-notifications small">
@@ -339,7 +339,7 @@
 
                                     <div class="dropdown-user-details">
                                         <div class="dropdown-user-avatar">
-                                            <img src="..\assets\images\avatars\avatar-2.jpeg" alt="">
+                                            <img src="{{asset('assets\images\avatars\avatar-2.jpeg')}}" alt="">
                                         </div>
                                         <div class="dropdown-user-name">
                                             Richard Ali <span>Students</span>
@@ -451,7 +451,7 @@
                         <div class="side-menu-slide-content">
                             <ul data-simplebar="">
                                 <li>
-                                    <a href="courses.html"> <i class="uil-brush-alt "></i> Cursos </a>
+                                    <a href="{{route('course.index')}}"> <i class="uil-brush-alt "></i> Cursos </a>
                                 </li>
                         </ul></div>
                     </div>
@@ -557,7 +557,7 @@
 
                                 <div class="dropdown-user-details">
                                     <div class="dropdown-user-avatar">
-                                        <img src="assets\images\avatars\avatar-2.jpeg" alt="">
+                                        <img src="{{asset('assets\images\avatars\avatar-2.jpeg')}}" alt="">
                                     </div>
                                     <div class="dropdown-user-name">
                                         Richard Ali <span>Students</span>
@@ -635,11 +635,11 @@
 
     <!-- javaScripts
     ================================================== -->
-    <script src="assets\js\framework.js"></script>
-    <script src="assets\js\jquery-3.3.1.min.js"></script>
-    <script src="assets\js\simplebar.js"></script>
-    <script src="assets\js\main.js"></script>
-    <script src="assets\js\bootstrap-select.min.js"></script>
+    <script src="{{asset('assets\js\framework.js')}}"></script>
+    <script src="{{asset('assets\js\jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('assets\js\simplebar.js')}}"></script>
+    <script src="{{asset('assets\js\main.js')}}"></script>
+    <script src="{{asset('assets\js\bootstrap-select.min.js')}}"></script>
 
 
 </body>
