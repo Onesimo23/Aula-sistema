@@ -13,12 +13,12 @@
     <!-- Favicon -->
     <link href="{{asset('assets\images\favicon.png')}}" rel="icon" type="image/png">
 
-    <!-- CSS 
+    <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="{{{{asset('asset('assets\css\style.css')}}')}}">
+    <link rel="stylesheet" href="{{asset('assets\css\style.css')}}">
     <link rel="stylesheet" href="{{asset('assets\css\night-mode.css')}}">
     <link rel="stylesheet" href="{{asset('assets\css\framework.css')}}">
-    <link rel="stylesheet" href="{{asset('assets\css\bootstrap.css')}}"> 
+    <link rel="stylesheet" href="{{asset('assets\css\bootstrap.css')}}">
 
     <!-- icons
     ================================================== -->
@@ -29,8 +29,8 @@
 
 <body>
 
-    <div id="wrapper">       
-       
+    <div id="wrapper">
+
 
         <!-- search overlay-->
         <div id="searchbox">
@@ -577,7 +577,7 @@
                         <a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#">
                             <i class="uil-search icon-small"></i>
                         </a>
-                        
+
                         <!-- User icons -->
                             <a href="#" class="uil-user icon-small uk-hidden@s" uk-toggle="target: .header-widget ; cls: is-active">
                             </a>
