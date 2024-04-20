@@ -8,7 +8,7 @@
     <title>Sistema de gestão de cursos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" >
+    <meta name="description">
 
     <!-- Favicon -->
     <link href="{{asset('assets\images\favicon.png')}}" rel="icon" type="image/png">
@@ -18,17 +18,17 @@
     <link rel="stylesheet" href="..\assets\css\style.css">
     <link rel="stylesheet" href="{{asset('assets\css\night-mode.css')}}">
     <link rel="stylesheet" href="..\assets\css\framework.css">
-    <link rel="stylesheet" href="..\assets\css\bootstrap.css"> 
+    <link rel="stylesheet" href="..\assets\css\bootstrap.css">
 
     <!-- icons
     ================================================== -->
     <link rel="stylesheet" href="..\assets\css\icons.css">
 
- 
+
 </head>
 
 <body>
-     
+
 
     <!-- Content
     ================================================== -->
@@ -36,50 +36,33 @@
         <div class="uk-width-1-3@m uk-width-1-2@s m-auto">
             <div class="uk-card-default p-5 rounded">
                 <div class="mb-4 uk-text-center">
-                    <h3 class="mb-0"> Bem vindo </h3>
+                    <h3 class="mb-0">Bem vindo</h3>
                     <p class="my-2">Faça o login para acessar a sua conta.</p>
                 </div>
-                <form>
-
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
                     <div class="uk-form-group">
-                        <label class="uk-form-label"> Email</label>
-
+                        <label class="uk-form-label">Email</label>
                         <div class="uk-position-relative w-100">
                             <span class="uk-form-icon">
                                 <i class="icon-feather-mail"></i>
                             </span>
                             <input class="uk-input" name="email" type="email" placeholder="name@example.com">
                         </div>
-
                     </div>
 
                     <div class="uk-form-group">
-                        <label class="uk-form-label"> Senha</label>
-
+                        <label class="uk-form-label">Senha</label>
                         <div class="uk-position-relative w-100">
                             <span class="uk-form-icon">
                                 <i class="icon-feather-lock"></i>
                             </span>
-                            <input class="uk-input" name="senha" type="password" placeholder="********">
+                            <input class="uk-input" name="password" type="password" placeholder="********">
                         </div>
-
                     </div>
-
-                    <div class="uk-form-group">
-                        <label class="uk-form-label"> Confirmar senha</label>
-
-                        <div class="uk-position-relative w-100">
-                            <span class="uk-form-icon">
-                                <i class="icon-feather-lock"></i>
-                            </span>
-                            <input class="uk-input" name="confirmarsenha" type="password" placeholder="********">
-                        </div>
-
-                    </div>
-
                     <div class="mt-4 uk-flex-middle uk-grid-small" uk-grid="">
                         <div class="uk-width-expand@s">
-                            <p> Não tens uma conta? <a href="page-register.html">Registrar-se</a></p>
+                            <p>Não tens uma conta? <a href="{{route('register')}}">Registrar-se</a></p>
                         </div>
                         <div class="uk-width-auto@s">
                             <button type="submit" class="btn btn-default">Entrar</button>
@@ -91,11 +74,9 @@
         </div>
     </div>
 
-
-
     <!-- For Night mode -->
     <script>
-        (function (window, document, undefined) {
+        (function(window, document, undefined) {
             'use strict';
             if (!('localStorage' in window)) return;
             var nightMode = localStorage.getItem('gmtNightMode');
@@ -105,7 +86,7 @@
         })(window, document);
 
 
-        (function (window, document, undefined) {
+        (function(window, document, undefined) {
 
             'use strict';
 
@@ -117,7 +98,7 @@
             if (!nightMode) return;
 
             // When clicked, toggle night mode on or off
-            nightMode.addEventListener('click', function (event) {
+            nightMode.addEventListener('click', function(event) {
                 event.preventDefault();
                 document.documentElement.classList.toggle('night-mode');
                 if (document.documentElement.classList.contains('night-mode')) {
@@ -129,7 +110,6 @@
 
         })(window, document);
     </script>
-
 
     <!-- javaScripts
     ================================================== -->
