@@ -2,6 +2,11 @@
 
 @section('content')
 
+<style>
+    .password-match-error {
+        border-color: red !important;
+    }
+</style>
 
 <div class="page-content">
     <div class="page-content-inner">
@@ -15,9 +20,83 @@
                 </ul>
             </nav>
             <div>
-                <a class="uk-button uk-button-default" href="{{route('users.create')}}">Adicionar Usuário</a>
+                <a class="uk-button uk-button-default" href="#modal-example" uk-toggle>Adicionar Usuarios</a>
             </div>
         </div>
+        <div id="modal-example" uk-modal="">
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title">Headline</h2>
+                <form class="uk-child-width-1-1 uk-grid-small" uk-grid="" action="{{ route('register') }}" method="POST" id="registerForm">
+                    @csrf
+                    <div>
+                        <div class="uk-form-group">
+                            <label class="uk-form-label">Nome</label>
+                            <div class="uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-user"></i>
+                                </span>
+                                <input class="uk-input" type="text" placeholder="Nome completo" name="name" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-form-group">
+                            <label class="uk-form-label">Email</label>
+                            <div class="uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-mail"></i>
+                                </span>
+                                <input class="uk-input" type="email" placeholder="name@example.com" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2@s">
+                        <div class="uk-form-group">
+                            <label class="uk-form-label">Password</label>
+                            <div class="uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-lock"></i>
+                                </span>
+                                <input class="uk-input" type="password" placeholder="********" name="password" id="password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2@s">
+                        <div class="uk-form-group">
+                            <label class="uk-form-label">Confirm password</label>
+                            <div class="uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-lock"></i>
+                                </span>
+                                <input class="uk-input" type="password" placeholder="********" name="password_confirmation" id="password_confirmation" required>
+                            </div>
+                            <span id="passwordError" style="display: none; color: red;">Passwords do not match</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-form-group">
+                            <label class="uk-form-label">Nível de Acesso</label>
+                            <div class="uk-position-relative w-100">
+                                <select class="uk-select" name="role" required>
+                                    <option value="student">Estudante</option>
+                                    <option value="teacher">Instrutor</option>
+                                    <option value="administrator">Administrador</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button class="uk-button uk-button-primary" type="submit">Criar</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+
+
+
 
         <h4 class="d-inline-block mb-0">Usuários</h4>
         <div class="d-flex">
@@ -60,7 +139,7 @@
 </div>
 <!-- Table -->
 <div class="table-responsive">
-    <table class="uk-table uk-table-striped">
+    <table class="table align-items-center">
         <thead>
             {{-- <th>Table Heading</th> --}}
             <tr>
@@ -100,6 +179,7 @@
         </tbody>
     </table>
 </div>
+
 
 
 
@@ -160,4 +240,27 @@
             $('#create-user-modal').modal('hide');
         });
     });
+
+
+    var password = document.getElementById("password");
+    var confirm_password = document.getElementById("password_confirmation");
+    var passwordError = document.getElementById("passwordError");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.classList.add("password-match-error");
+            passwordError.style.display = "block";
+            return false;
+        } else {
+            confirm_password.classList.remove("password-match-error");
+            passwordError.style.display = "none";
+            return true;
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
+<script>
+
 </script>

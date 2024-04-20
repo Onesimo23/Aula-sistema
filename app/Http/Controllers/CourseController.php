@@ -10,9 +10,16 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function getCourse(){
+        return view('course.course');
+    }
+
+    public function addCourse(){
+        return view('course.add');
+    }
     public function index()
     {
-        return view('course.course');
+        //
     }
 
     /**
