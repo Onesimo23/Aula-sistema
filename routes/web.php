@@ -19,6 +19,7 @@ Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('/description', [UserController::class, 'description'])->name('description');
 Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index'); //rotas por ver
 Route::get('/course/add', [CourseController::class, 'addCourse'])->name('addcourse');
-
+Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::get('users/create', [UserController::class, 'create'])->name('users.create');
 Route::post('users', [UserController::class, 'store'])->name('users.store');
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');

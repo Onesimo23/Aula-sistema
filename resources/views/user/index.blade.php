@@ -137,9 +137,8 @@
         </div>
     </div>
 </div>
-<!-- Table -->
-<div class="table-responsive">
-    <table class="table align-items-center">
+<div class="uk-overflow-auto">
+    <table id="users-table" class="uk-table">
         <thead>
             {{-- <th>Table Heading</th> --}}
             <tr>
@@ -157,7 +156,7 @@
             <tr>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td> {{ $user->role }}</td>
+                <td>{{ $user->role }}</td>
                 <td>
                     <div class="progress" style="height: 7px;">
                         <div class="progress-bar" role="progressbar" style="width: 45%;"></div>
@@ -166,11 +165,11 @@
                 <td class="text-right">
                     <!-- Actions -->
                     <div class="actions ml-3">
-                        <a href="#" class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Quick view">
+                        <a class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Quick view">
                             <i class="uil-external-link-alt "></i> </a>
-                        <a href="#" class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Edit">
+                        <a href="#edit_modal" uk-toggle class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Edit">
                             <i class="uil-pen "></i> </a>
-                        <a href="#" class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Delete user">
+                        <a href="#delete" uk-toggle class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Delete user">
                             <i class="uil-trash-alt text-danger"></i> </a>
                     </div>
                 </td>
@@ -179,7 +178,53 @@
         </tbody>
     </table>
 </div>
+<!-- modal de edição de usuarios -->
+<div id="edit_modal" uk-modal="">
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Editar Usuarios</h2>
+        <form action="{{ route('users.update', $user->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Nível de Acesso</label>
+                <select class="form-control" id="role" name="role" required>
+                    <option value="student" {{ $user->role == 'student' ? 'selected' : '' }}>Estudante</option>
+                    <option value="teacher" {{ $user->role == 'teacher' ? 'selected' : '' }}>Instrutor</option>
+                    <option value="administrator" {{ $user->role == 'administrator' ? 'selected' : '' }}>Administrador</option>
+                </select>
+            </div>
 
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="submit">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<div id="delete" uk-modal="">
+    <div class="uk-modal-dialog uk-modal-body">
+    <h1>Confirmação de Exclusão de Usuário</h1>
+            <p>Você tem certeza que deseja excluir o usuário "{{ $user->name }}"?</p>
+            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class=" btn btn-danger" type="submit">Confirmar Exclusão</button>
+        </p>
+        </form>
+    </div>
+</div>
 
 
 
@@ -224,43 +269,8 @@
             </div>
         </div>
     </div>
-</div>
 
-
-
-</div>
 @endsection
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var form = document.getElementById('create-user-modal');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            this.submit();
-            $('#create-user-modal').modal('hide');
-        });
-    });
-
-
-    var password = document.getElementById("password");
-    var confirm_password = document.getElementById("password_confirmation");
-    var passwordError = document.getElementById("passwordError");
-
-    function validatePassword() {
-        if (password.value != confirm_password.value) {
-            confirm_password.classList.add("password-match-error");
-            passwordError.style.display = "block";
-            return false;
-        } else {
-            confirm_password.classList.remove("password-match-error");
-            passwordError.style.display = "none";
-            return true;
-        }
-    }
-
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
-</script>
-<script>
 
 </script>
