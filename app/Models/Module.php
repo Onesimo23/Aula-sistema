@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
-class Course extends Model
+class Module extends Model
 {
-    use HasFactory, Notifiable;
-        /**
+    use HasFactory;
+            /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -17,20 +16,10 @@ class Course extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'description',
-        'piture',
-        'price',
-        'role',
-        'validate',
     ];
 
-    public function user()
+    public function course()
 {
     return $this->belongsTo(User::class);
-}
-
-public function module()
-{
-    return $this->hasMany(Module::class);
 }
 }

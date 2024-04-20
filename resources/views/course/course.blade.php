@@ -9,13 +9,13 @@
     <nav id="breadcrumbs" class="mb-3">
         <ul>
             <li><a href="#"> <i class="uil-home-alt"></i> </a></li>
-            <li> Courses </li>
+            <li> Cursos </li>
 
         </ul>
     </nav>
 
     <div class="d-flex justify-content-between mb-3">
-        <h3> Courses (14) </h3>
+        <h3> Courses (1) </h3>
 
         <div>
         <button class="uk-button uk-button-default uk-margin-small-right"
@@ -38,136 +38,10 @@
                     <div class="card-footer py-0 border-top-0">
                         <div class="row align-items-center text-center">
                             <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 120$ Sales </a>
+                                <a href="#" class="text-muted"> Editar</a>
                             </div>
                             <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 20 Enrolled </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div>
-            <a href="#">
-                <div class="card animate-this uk-inline-clip">
-                    <img src="{{asset('assets\images\course\3.png')}}" alt="">
-                    <div class="card-body text-center pb-3">
-                        <h6 class=" mb-0"> The Complete JavaScript </h6>
-                    </div>
-                    <div class="card-footer py-0 border-top-0">
-                        <div class="row align-items-center text-center">
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 90$ Sales </a>
-                            </div>
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 8 Enrolled </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div>
-            <a href="#">
-                <div class="card animate-this uk-inline-clip">
-                    <img src="assets\images\course\1.png" alt="">
-                    <div class="card-body text-center pb-3">
-                        <h6 class=" mb-0"> Ultimate Web Developer Course </h6>
-                    </div>
-                    <div class="card-footer py-0 border-top-0">
-                        <div class="row align-items-center text-center">
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 230$ Sales </a>
-                            </div>
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 21 Enrolled </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div>
-            <a href="#">
-                <div class="card animate-this uk-inline-clip">
-                    <img src="assets\images\course\5.png" alt="">
-                    <div class="card-body text-center pb-3">
-                        <h6 class=" mb-0"> Ultimate Web Developer Course </h6>
-                    </div>
-                    <div class="card-footer py-0 border-top-0">
-                        <div class="row align-items-center text-center">
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 142$ Sales </a>
-                            </div>
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 13 Enrolled </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div>
-            <a href="#">
-                <div class="card animate-this uk-inline-clip">
-                    <img src="assets\images\course\7.png" alt="">
-                    <div class="card-body text-center pb-3">
-                        <h6 class=" mb-0"> Bootstrap Introduction </h6>
-                    </div>
-                    <div class="card-footer py-0 border-top-0">
-                        <div class="row align-items-center text-center">
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 80$ Sales </a>
-                            </div>
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 6 Enrolled </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div>
-            <a href="#">
-                <div class="card animate-this uk-inline-clip">
-                    <img src="..\assets\images\course\2.png" alt="">
-                    <div class="card-body text-center pb-3">
-                        <h6 class=" mb-0"> Learn Angular Fundamentals </h6>
-                    </div>
-                    <div class="card-footer py-0 border-top-0">
-                        <div class="row align-items-center text-center">
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 120$ Sales </a>
-                            </div>
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 20 Enrolled </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div>
-            <a href="#">
-                <div class="card animate-this uk-inline-clip">
-                    <img src="assets\images\course\3.png" alt="">
-                    <div class="card-body text-center pb-3">
-                        <h6 class=" mb-0"> The Complete JavaScript </h6>
-                    </div>
-                    <div class="card-footer py-0 border-top-0">
-                        <div class="row align-items-center text-center">
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 90$ Sales </a>
-                            </div>
-                            <div class="col-6 py-3">
-                                <a href="#" class="text-muted"> 8 Enrolled </a>
+                                <a href="#" class="danger-text-muted">Apagar </a>
                             </div>
                         </div>
                     </div>
@@ -194,13 +68,13 @@
 <div id="modal-example" uk-modal="">
 <div class="uk-modal-dialog uk-modal-body">
 	<h2 class="uk-modal-title">Novo Curso</h2>
-                <form id="user-form" method="POST" action="">
+        <form id="user-form" method="POST" action="">
                     @csrf
 
                     <div class="card">
-        <div class="card-header border-bottom-0 py-4">
-            <h5> Configuração dos Cursos </h5>
-        </div>
+                    <div class="card-header border-bottom-0 py-4">
+                        <h5> Configuração dos Cursos </h5>
+                    </div>
 
 
         <ul class="uk-child-width-expand uk-tab" uk-switcher="connect: #course-edit-tab ; animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
@@ -239,8 +113,10 @@
                                 <label class="col-md-3 col-form-label" for="user_id"> Instrutor <span class="required">*</span></label>
                                 <div class="col-md-9">
 
-                                    <select class="selectpicker">
-                                        <option value=""> Admin 1 </option>
+                                    <select class="selectpicker" name="user_id">
+                                        @foreach($users as $value)
+                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endforeach()
                                     </select>
 
                                 </div>
@@ -291,6 +167,17 @@
                         <div class="col-xl-9">
                             <div class="form-group row mb-3">
                                 <label class="col-md-3 col-form-label" for="meta_description">Descrição</label>
+                                <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="user_id"> Aula <span class="required">*</span></label>
+                                <div class="col-md-9">
+                                    <select class="selectpicker" name="user_id">
+                                        @foreach($lessons as $value)
+                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endforeach()
+                                    </select>
+
+                                </div>
+                            </div>
                                 <div class="col-md-9">
                                     <textarea name="meta_description" class="form-control"></textarea>
                                 </div>

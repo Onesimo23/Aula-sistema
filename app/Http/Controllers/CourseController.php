@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Module;
+use App\Models\Quizzs;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -11,7 +14,8 @@ class CourseController extends Controller
      * Display a listing of the resource.
      */
     public function getCourse(){
-        return view('course.course');
+        $users = User::where('role', 'teacher')->first();
+        return view('course.course', compact('users'));
     }
 
     public function addCourse(){
@@ -19,7 +23,7 @@ class CourseController extends Controller
     }
     public function index()
     {
-        //
+       //
     }
 
     /**
@@ -35,7 +39,39 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'title' => 'request',
+            'description' => 'required|',
+            'price' => 'required|double',
+            'role' => 'required|',
+            'user_id' => 'required|',
+            'validate' => 'required|date',
+
+        ]);
+
+        $users = User::where('role', 'teacher')->first();
+
+        $course = Course::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'price' => $validatedData['price'],
+            'role' => $validatedData['role'],
+            'validate' => $validatedData['validate'],
+            'user_id' => $validatedData['user_id'],
+        ]);
+
+        $modulo = Module::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+        ]);
+
+        $quizz = Quizzs::class([
+            'title' => $validatedData['title'],
+            'description' => $validatedData['description'],
+        ]);
+
+        return redirect()->route('user', compact('users'))->with('success', 'Usuário criado com sucesso!');
     }
 
     /**
