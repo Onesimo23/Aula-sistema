@@ -17,3 +17,6 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('/description', [UserController::class, 'description'])->name('description'); //rotas por ver
 Route::get('/course', [])->name('addcourse');
+
+Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('users', [UserController::class, 'store'])->name('users.store');
