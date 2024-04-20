@@ -112,6 +112,159 @@
             </div>
         </div>
     </div>
+    <div class="section-small">
+        <div class="uk-child-width-1-4@m uk-child-width-1-3@s course-card-grid" uk-grid="">
+            <div>
+                <a href="course-intro.html">
+                    <div class="course-card">
+                        <div class="course-card-thumbnail ">
+                            <img src="..\assets\images\course\2.png">
+                            <span class="play-button-trigger"></span>
+                        </div>
+                        <div class="course-card-body">
+                            <div class="course-card-info">
+                                <div>
+                                    <span class="catagroy">Angular</span>
+                                </div>
+                                <div>
+                                    <i class="icon-feather-bookmark icon-small"></i>
+                                </div>
+                            </div>
+                            <h4>Learn Angular Fundamentals </h4>
+                            <p> Learn how to build launch React web applications using .. </p>
+                            <div class="course-card-footer">
+                                <h5> <i class="icon-feather-film"></i> 12 Lectures </h5>
+                                <h5> <i class="icon-feather-clock"></i> 64 Hours </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+
+            <div>
+                <a href="course-intro.html">
+                    <div class="course-card">
+                        <div class="course-card-thumbnail ">
+                            <img src="..\assets\images\course\1.png">
+                            <span class="play-button-trigger"></span>
+                        </div>
+                        <div class="course-card-body">
+                            <div class="course-card-info">
+                                <div>
+                                    <span class="catagroy">HTML</span>
+                                </div>
+                                <div>
+                                    <i class="icon-feather-bookmark icon-small"></i>
+                                </div>
+                            </div>
+
+                            <h4>Ultimate Web Developer Course </h4>
+                            <p> HTML is the building blocks of the web. It gives pages structure</p>
+
+                            <div class="course-card-footer">
+                                <h5> <i class="icon-feather-film"></i> 33 Aulas </h5>
+                                <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a>
+                                <h5> <i class="icon-feather-clock"></i> 26 Horas </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+            <div>
+                <a href="course-intro.html">
+                    <div class="course-card">
+                        <div class="course-card-thumbnail ">
+                            <img src="..\assets\images\course\1.png">
+                            <span class="play-button-trigger"></span>
+                        </div>
+                        <div class="course-card-body">
+                            <div class="course-card-info">
+                                <div>
+                                    <span class="catagroy">HTML</span>
+                                </div>
+                                <div>
+                                    <i class="icon-feather-bookmark icon-small"></i>
+                                </div>
+                            </div>
+
+                            <h4>Ultimate Web Developer Course </h4>
+                            <p> HTML is the building blocks of the web. It gives pages structure</p>
+
+                            <div class="course-card-footer">
+                                <h5> <i class="icon-feather-film"></i> 33 Aulas </h5>
+                                <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a>
+                                <h5> <i class="icon-feather-clock"></i> 26 Horas </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+            <div>
+                <a href="course-intro.html">
+                    <div class="course-card">
+                        <div class="course-card-thumbnail ">
+                            <img src="..\assets\images\course\2.png">
+                            <span class="play-button-trigger"></span>
+                        </div>
+                        <div class="course-card-body">
+                            <div class="course-card-info">
+                                <div>
+                                    <span class="catagroy">Angular</span>
+                                </div>
+                                <div>
+                                    <i class="icon-feather-bookmark icon-small"></i>
+                                </div>
+                            </div>
+
+                            <h4>Learn Angular Fundamentals </h4>
+                            <p> Learn how to build and launch React web applications using .. </p>
+                            <div class="course-card-footer">
+                                <h5> <i class="icon-feather-film"></i> 14 Lectures </h5>
+                                <h5> <i class="icon-feather-clock"></i> 55 Hours </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+            <div>
+                <a href="course-intro.html">
+                    <div class="course-card">
+                        <div class="course-card-thumbnail ">
+                            <img src="..\assets\images\course\2.png">
+                            <span class="play-button-trigger"></span>
+                        </div>
+                        <div class="course-card-body">
+                            <div class="course-card-info">
+                                <div>
+                                    <span class="catagroy">Angular</span>
+                                </div>
+                                <div>
+                                    <i class="icon-feather-bookmark icon-small"></i>
+                                </div>
+                            </div>
+
+                            <h4>Learn Angular Fundamentals </h4>
+                            <p> Learn how to build and launch React web applications using .. </p>
+                            <div class="course-card-footer">
+                                <h5> <i class="icon-feather-film"></i> 14 Lectures </h5>
+                                <h5> <i class="icon-feather-clock"></i> 55 Hours </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
 
     <!-- pagination menu -->
     <ul class="uk-pagination my-5 uk-flex-center" uk-margin="">
