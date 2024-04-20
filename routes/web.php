@@ -15,5 +15,5 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register']);
 Route::get('user', [UserController::class, 'index'])->name('user');
-Route::get('users/create', [UserController::class, 'create'])->name('users.create'); //rotas por ver
-Route::post('users', [UserController::class, 'store'])->name('users.store');
+Route::get('/description', [UserController::class, 'description'])->name('description'); //rotas por ver
+Route::get('/course', [])->name('addcourse');
