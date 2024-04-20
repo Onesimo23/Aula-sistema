@@ -189,7 +189,6 @@
     <!-- This is a button toggling the modal -->
 
 <!-- This is an anchor toggling the modal -->
-<a href="#modal-example" uk-toggle="">Open</a>
 
 <!-- This is the modal -->
 <div id="modal-example" uk-modal="">
@@ -200,14 +199,14 @@
 
                     <div class="card">
         <div class="card-header border-bottom-0 py-4">
-            <h5> Course Manager </h5>
+            <h5> Configuração dos Cursos </h5>
         </div>
 
 
         <ul class="uk-child-width-expand uk-tab" uk-switcher="connect: #course-edit-tab ; animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
             <li class="uk-active"><a href="#"> Início</a></li>
             <li><a href="#"> Quizzs</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Módulos</a></li>
             <li><a href="#">Preço</a></li>
             <li><a href="#">Finalizar</a></li>
         </ul>
@@ -225,14 +224,14 @@
                             <div class="form-group row mb-3">
                                 <label class="col-md-3 col-form-label" for="course_title">Nome do Curso<span class="required">*</span></label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Digita o título do curso" value="Learn CSS Fundamentals ..." required="">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Digita o título do curso" value="" required="">
                                 </div>
                             </div>
 
                             <div class="form-group row mb-3">
                                 <label class="col-md-3 col-form-label" for="short_description">Descrição</label>
                                 <div class="col-md-9">
-                                    <textarea name="description" id="short_description" class="form-control">...</textarea>
+                                    <textarea name="description" id="short_description" class="form-control"  placeholder="..."></textarea>
                                 </div>
                             </div>
 
@@ -247,7 +246,28 @@
                                 </div>
                             </div>
 
+                            <div class="uk-width-2-5@m uk-flex-last@m">
 
+                                <div class="uk-card-default rounded text-center p-4">
+                                    <div class="uk-position-relative my-4">
+
+                                            <div class="user-profile-photo  m-auto">
+                                                <img src="{{asset('assets\images\avatars\home-profile.jpeg')}}" alt="">
+                                            </div>
+
+
+
+                                        <div class="uk-position-center">
+                                            <div uk-form-custom="">
+                                                <input type="file" name="piture">
+                                                <span class="uk-link icon-feather-camera icon-medium text-white"> </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </div>
                         </div>
                     </div>
 
@@ -304,26 +324,32 @@
 
                             <div id="newElementId"> </div>
 
-                            <input type='file' name="piture" class='uk-input' placeholder="Adicionar foto de perfil">
+                            <input type='text' name="name" class='uk-input' placeholder="Adicionar o módulo">
+                            <select class="selectpicker">
+                                <option value=""> Admin 1 </option>
+                            </select>
 
                         </div>
                     </div>
                 </li>
 
                 <li>
-
-                    <div class="row justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9">
                     <div class="form-group row mb-3">
-                                <label class="col-md-3 col-form-label" for="course_title"> Estado do Curso <span class="required">*</span></label>
-                                <div class="col-md-9">
+                        <label class="col-md-3 col-form-label" for="course_title"> Estado do Curso <span class="required">*</span></label>
+                        <div class="col-md-9">
 
-                                    <select class="selectpicker">
-                                        <option value="free"> Degraça </option>
-                                        <option value="paid"> Pago </option>
-                                    </select>
+                            <select class="selectpicker">
+                                <option value="free"> Degraça </option>
+                                <option value="paid"> Pago </option>
+                            </select>
 
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    <div class="row justify-content-center">
                         <div class="col-xl-9">
 
                             <div class="form-group row mb-3">
@@ -380,7 +406,6 @@
         </form>
 	<p class="uk-text-right">
 		<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-		<button class="uk-button uk-button-primary" type="button">Save</button>
 	</p>
 </div>
 </div>
