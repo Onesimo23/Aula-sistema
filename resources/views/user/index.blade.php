@@ -74,7 +74,6 @@
                         <tr>
                             <th scope="col">Nome</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Senha</th>
                             <th scope="col">Nível de acesso</th>
                             <th scope="col">Acções</th>
                         </tr>
@@ -84,15 +83,8 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td> {{ $user->password }} </td>
                             <td> {{ $user->role }}</td>
-                            <td>
-                                <div class="progress" style="height: 7px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 45%;"></div>
-                                </div>
-                            </td>
                             <td class="text-right">
-                                <!-- Actions -->
                                 <div class="actions ml-3">
                                     <a href="#" class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Quick view">
                                         <i class="uil-external-link-alt "></i> </a>
@@ -168,3 +160,4 @@
                 });
             });
         </script>
+    </div>

@@ -369,8 +369,8 @@
                                     <li><a href="#">
                                             <i class="icon-feather-help-circle"></i> Help</a>
                                     </li>
-                                    <li><a href="page-login.html">
-                                            <i class="icon-feather-log-out"></i> Sing Out</a>
+                                    <li><a href="{{route('logout')}}">
+                                            <i class="icon-feather-log-out"></i> Logout</a>
                                     </li>
                                 </ul>
 
