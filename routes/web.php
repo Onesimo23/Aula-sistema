@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    return view('login');
+    return view('dashboard');
 });
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -15,5 +15,5 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register']);
 Route::get('user', [UserController::class, 'index'])->name('user');
-Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('users/create', [UserController::class, 'create'])->name('users.create'); //rotas por ver
 Route::post('users', [UserController::class, 'store'])->name('users.store');
