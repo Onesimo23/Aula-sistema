@@ -3,10 +3,10 @@
 @section('content')
 
 <style>
-        .password-match-error {
-            border-color: red !important;
-        }
-    </style>
+    .password-match-error {
+        border-color: red !important;
+    }
+</style>
 
 <div class="page-content">
     <div class="page-content-inner">
@@ -27,8 +27,8 @@
             <div class="uk-modal-dialog uk-modal-body">
                 <h2 class="uk-modal-title">Headline</h2>
                 <form class="uk-child-width-1-1 uk-grid-small" uk-grid="" action="{{ route('register') }}" method="POST" id="registerForm">
-                    @csrf 
-                       <div>
+                    @csrf
+                    <div>
                         <div class="uk-form-group">
                             <label class="uk-form-label">Nome</label>
                             <div class="uk-position-relative w-100">
@@ -85,11 +85,11 @@
                             </div>
                         </div>
                     </div>
-                                
-                <p class="uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                    <button class="uk-button uk-button-primary" type="submit">Criar</button>
-                </p>
+
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button class="uk-button uk-button-primary" type="submit">Criar</button>
+                    </p>
                 </form>
             </div>
         </div>
@@ -138,8 +138,8 @@
     </div>
 </div>
 <!-- Table -->
-<div class="table-responsive">
-    <table class="table align-items-center">
+<div class="uk-overflow-auto">
+    <table class="uk-table">
         <thead>
             <tr>
                 <th scope="col">Nome</th>
@@ -175,6 +175,7 @@
         </tbody>
     </table>
 </div>
+
 
 
 
@@ -235,24 +236,27 @@
             $('#create-user-modal').modal('hide');
         });
     });
+
+
+    var password = document.getElementById("password");
+    var confirm_password = document.getElementById("password_confirmation");
+    var passwordError = document.getElementById("passwordError");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.classList.add("password-match-error");
+            passwordError.style.display = "block";
+            return false;
+        } else {
+            confirm_password.classList.remove("password-match-error");
+            passwordError.style.display = "none";
+            return true;
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
 </script>
 <script>
-        var password = document.getElementById("password");
-        var confirm_password = document.getElementById("password_confirmation");
-        var passwordError = document.getElementById("passwordError");
 
-        function validatePassword() {
-            if (password.value != confirm_password.value) {
-                confirm_password.classList.add("password-match-error");
-                passwordError.style.display = "block";
-                return false;
-            } else {
-                confirm_password.classList.remove("password-match-error");
-                passwordError.style.display = "none";
-                return true;
-            }
-        }
-
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;
-    </script>
+</script>
