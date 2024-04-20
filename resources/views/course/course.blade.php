@@ -18,9 +18,11 @@
         <h3> Courses (14) </h3>
 
         <div>
-            <a href="#create-course-modal" uk-toggle class="btn btn-default">
-                <i class="uil-plus"> </i> Novo curso
-            </a>
+        <button class="uk-button uk-button-default uk-margin-small-right"
+        type="button"
+        uk-toggle="target: #modal-example">
+        <i class="uil-plus"> </i>Novo curso
+        </button>
         </div>
     </div>
 
@@ -184,16 +186,15 @@
         <li><a href="#"><span uk-pagination-next=""></span></a></li>
     </ul>
 
-    <div class="modal fade" id="create-course-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Novo Curso </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
+    <!-- This is a button toggling the modal -->
+
+<!-- This is an anchor toggling the modal -->
+<a href="#modal-example" uk-toggle="">Open</a>
+
+<!-- This is the modal -->
+<div id="modal-example" uk-modal="">
+<div class="uk-modal-dialog uk-modal-body">
+	<h2 class="uk-modal-title">Novo Curso</h2>
                 <form id="user-form" method="POST" action="">
                     @csrf
 
@@ -377,12 +378,11 @@
 
     </div>
         </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-    </div>
+	<p class="uk-text-right">
+		<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+		<button class="uk-button uk-button-primary" type="button">Save</button>
+	</p>
 </div>
-    </div>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -394,5 +394,4 @@
         });
     });
 </script>
-
 @endsection()
