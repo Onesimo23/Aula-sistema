@@ -18,8 +18,8 @@
         <h3> Courses (14) </h3>
 
         <div>
-            <a href="{{route('addcourse')}}" class="btn btn-default">
-                <i class="uil-plus"> </i> New course
+            <a href="#create-course-modal" uk-toggle class="btn btn-default">
+                <i class="uil-plus"> </i> Novo curso
             </a>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div>
             <a href="#">
                 <div class="card animate-this uk-inline-clip">
-                    <img src="assets\images\course\2.png" alt="">
+                    <img src="{{asset('assets\images\course\2.png')}}" alt="">
                     <div class="card-body text-center pb-3">
                         <h6 class=" mb-0"> Learn Angular Fundamentals </h6>
                     </div>
@@ -50,7 +50,7 @@
         <div>
             <a href="#">
                 <div class="card animate-this uk-inline-clip">
-                    <img src="assets\images\course\3.png" alt="">
+                    <img src="{{asset('assets\images\course\3.png')}}" alt="">
                     <div class="card-body text-center pb-3">
                         <h6 class=" mb-0"> The Complete JavaScript </h6>
                     </div>
@@ -183,5 +183,216 @@
         <li class="uk-disabled"><span>...</span></li>
         <li><a href="#"><span uk-pagination-next=""></span></a></li>
     </ul>
+
+    <div class="modal fade" id="create-course-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Novo Curso </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="user-form" method="POST" action="">
+                    @csrf
+
+                    <div class="card">
+        <div class="card-header border-bottom-0 py-4">
+            <h5> Course Manager </h5>
+        </div>
+
+
+        <ul class="uk-child-width-expand uk-tab" uk-switcher="connect: #course-edit-tab ; animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+            <li class="uk-active"><a href="#"> Início</a></li>
+            <li><a href="#"> Quizzs</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Preço</a></li>
+            <li><a href="#">Finalizar</a></li>
+        </ul>
+
+        <div class="card-body">
+
+            <ul class="uk-switcher uk-margin" id="course-edit-tab">
+
+                <li>
+
+                    <div class="row">
+                        <div class="col-xl-9 m-auto">
+
+
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="course_title">Nome do Curso<span class="required">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Digita o título do curso" value="Learn CSS Fundamentals ..." required="">
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="short_description">Descrição</label>
+                                <div class="col-md-9">
+                                    <textarea name="description" id="short_description" class="form-control">...</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="user_id"> Instrutor <span class="required">*</span></label>
+                                <div class="col-md-9">
+
+                                    <select class="selectpicker">
+                                        <option value=""> Admin 1 </option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </li>
+
+
+                <li>
+
+                    <div class="row justify-content-center">
+                        <div class="col-xl-9">
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="website_keywords">Título</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control bootstrap-tag-input" id="meta_keywords" name="meta_keywords" data-role="tagsinput" style="width: 100%; display: none;">
+                                    <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                        <div class="col-xl-9">
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="meta_description">Descrição</label>
+                                <div class="col-md-9">
+                                    <textarea name="meta_description" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                    </div>
+
+
+                </li>
+
+                <li>
+
+
+                    <script type="text/JavaScript">
+                        function createNewElement() {
+                // First create a DIV element.
+                var txtNewInputBox = document.createElement('div');
+
+                // Then add the content (a new input box) of the element.
+                txtNewInputBox.innerHTML = "<input type='text' class='uk-input'>";
+
+                // Finally put it where it is supposed to appear.
+                document.getElementById("newElementId").appendChild(txtNewInputBox);
+            }
+            </script>
+
+                    <div class="row justify-content-center">
+                        <div class="col-xl-9">
+
+                            <button class="btn btn-default mb-3" onclick="createNewElement();"> <i class='uil-plus'></i> Mais </button>
+
+                            <div id="newElementId"> </div>
+
+                            <input type='file' name="piture" class='uk-input' placeholder="Adicionar foto de perfil">
+
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+
+                    <div class="row justify-content-center">
+                    <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="course_title"> Estado do Curso <span class="required">*</span></label>
+                                <div class="col-md-9">
+
+                                    <select class="selectpicker">
+                                        <option value="free"> Degraça </option>
+                                        <option value="paid"> Pago </option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        <div class="col-xl-9">
+
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label">Preço ($)</label>
+                                <div class="col-md-9">
+                                    <input type="number" name="price" class="form-control" placeholder="Digite o preço">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center">
+
+                        <div class="col-xl-9">
+
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label">Validade</label>
+                                <div class="col-md-9">
+                                    <input type="date" name="validate" class="form-control" placeholder="Validade do curso">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </li>
+
+                <li>
+
+                    <div class="row">
+                        <div class="col-12 my-lg-5">
+                            <div class="text-center">
+                                <h2 class="mt-0"><i class="icon-feather-check-circle text-success"></i></h2>
+                                <h3 class="mt-0">Obrigado !</h3>
+
+                                <p class="w-75 mb-2 mx-auto"> Submeta se estiver de acordo.  </p>
+
+                                <div class="mb-3 mt-3">
+                                    <button type="button" class="btn btn-default">Salvar</button>
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                    </div>
+
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('create-course-modal');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            this.submit();
+            $('#create-course-modal').modal('hide');
+        });
+    });
+</script>
 
 @endsection()
