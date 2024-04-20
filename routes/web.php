@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('login');
 });
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
