@@ -665,7 +665,7 @@
 
                                 <div class="uk-child-width-1-2 uk-grid-small mb-4" uk-grid="">
                                     <div>
-                                        <a href="{{route('login)}}" class="uk-width-1-1 btn btn-default transition-3d-hover"> <i class="uil-play"></i> Login </a>
+                                        <a href="{{route('login')}}" class="uk-width-1-1 btn btn-default transition-3d-hover"> <i class="uil-play"></i> Login </a>
                                     </div>
                                     <div>
                                         <a href="{{route('register')}}" class="btn btn-danger uk-width-1-1 transition-3d-hover"> <i class="uil-heart"></i> Escrever-se </a>
