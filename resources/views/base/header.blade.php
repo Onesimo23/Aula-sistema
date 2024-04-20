@@ -13,12 +13,12 @@
     <!-- Favicon -->
     <link href="..\assets\images\favicon.png" rel="icon" type="image/png">
 
-    <!-- CSS 
+    <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="assets\css\style.css">
     <link rel="stylesheet" href="assets\css\night-mode.css">
     <link rel="stylesheet" href="assets\css\framework.css">
-    <link rel="stylesheet" href="assets\css\bootstrap.css"> 
+    <link rel="stylesheet" href="assets\css\bootstrap.css">
 
     <!-- icons
     ================================================== -->
@@ -278,10 +278,10 @@
 
                                     <!-- notiviation list -->
                                     <ul>
-                                        
-                                        
-                                        
-                                        
+
+
+
+
                                     </ul>
 
                                 </div>
@@ -313,10 +313,10 @@
 
                                     <!-- notiviation list -->
                                     <ul>
-                                        
-                                       
-                                        
-                                        
+
+
+
+
                                     </ul>
 
                                 </div>
@@ -364,7 +364,7 @@
                                     <li><a href="#" style="color:#62d76b">
                                             <i class="icon-feather-star"></i> Upgrade To Premium</a>
                                     </li>
-                                   
+
                                     <li class="menu-divider">
                                     <li><a href="#">
                                             <i class="icon-feather-help-circle"></i> Help</a>
@@ -386,7 +386,7 @@
                         <a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#">
                             <i class="uil-search icon-small"></i>
                         </a>
-                        
+
                         <!-- User icons -->
                             <a href="#" class="uil-user icon-small uk-hidden@s" uk-toggle="target: .header-widget ; cls: is-active">
                             </a>
@@ -451,44 +451,7 @@
                         <div class="side-menu-slide-content">
                             <ul data-simplebar="">
                                 <li>
-                                    <a href="courses.html"> <i class="uil-brush-alt "></i> Web Development </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-android-alt"></i> Mobile App </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-bag-alt"></i> Business </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-window"></i> IT Software </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-palette"></i> Desings </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-megaphone"></i> Marketing </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-life-ring"></i> Life Style </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class=" uil-camera"></i> Photography </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-medkit"></i> Health Fitness </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-music"></i> Music </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-shopping-cart-alt"></i> Ecommerce
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-utensils-alt "></i> Food cooking </a>
-                                </li>
-                                <li>
-                                    <a href="courses.html"> <i class="uil-lightbulb-alt"></i> Teaching academy </a>
+                                    <a href="courses.html"> <i class="uil-brush-alt "></i> Cursos </a>
                                 </li>
                         </ul></div>
                     </div>
@@ -556,7 +519,7 @@
                     <a href="#" uk-toggle="target: #searchbox; cls: is-active"><i class="uil-search-alt"></i></a>
                 </li>
 
-            
+
             <ul class="uk-position-bottom">
                 <li>
                     <!-- Lunch information box -->
@@ -629,7 +592,7 @@
         </ul></div>
 
 
-        
+
 
     <!-- For Night mode -->
     <script>
@@ -667,8 +630,8 @@
 
         })(window, document);
     </script>
- 
- 
+
+
 
     <!-- javaScripts
     ================================================== -->
