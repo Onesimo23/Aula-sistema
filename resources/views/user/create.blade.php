@@ -6,7 +6,7 @@
 
 <div class="container">
 
-         
+
     <h1>Criar Novo Usuário</h1>
 
     @if ($errors->any())

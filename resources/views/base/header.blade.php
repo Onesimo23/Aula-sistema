@@ -15,7 +15,7 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="assets\css\style.css">
+    <link rel="stylesheet" href="{{asset('assets\css\style.css')}}">
     <link rel="stylesheet" href="assets\css\night-mode.css">
     <link rel="stylesheet" href="assets\css\framework.css">
     <link rel="stylesheet" href="assets\css\bootstrap.css">

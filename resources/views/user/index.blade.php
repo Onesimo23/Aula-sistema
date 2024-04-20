@@ -19,11 +19,6 @@
             </div>
         </div>
 
-
-
-
-
-
         <h4 class="d-inline-block mb-0">Usuários</h4>
         <div class="d-flex">
 
@@ -65,15 +60,19 @@
 </div>
 <!-- Table -->
 <div class="table-responsive">
-    <table class="table align-items-center">
+    <table class="uk-table uk-table-striped">
         <thead>
+            {{-- <th>Table Heading</th> --}}
             <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Email</th>
                 <th scope="col">Nível de acesso</th>
                 <th scope="col">Acções</th>
             </tr>
-        </thead>
+</thead>
+
+
+
         <tbody class="list">
             @foreach ($users as $user)
             <tr>
