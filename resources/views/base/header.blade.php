@@ -70,11 +70,11 @@
 
             <!-- logo -->
             <div class="logo uk-visible@s">
-                <a href="dashboard.html"> <i class=" uil-graduation-hat"></i> <span> Courseplus</span> </a>
+                <a href="dashboard.html"> <i class=" uil-graduation-hat"></i> <span> CurOne</span> </a>
             </div>
             <div class="page-menu-inner" data-simplebar="">
                 <ul data-submenu-title="Browse">
-                    <li><a href="courses.html"><i class="uil-play-circle"></i> <span> Courses</span></a> </li>
+                    <li><a href="{{route('course.index')}}"><i class="uil-play-circle"></i> <span> Courses</span></a> </li>
                     <li><a href="course-path.html"><i class="uil-rss-interface"></i> <span> Paths</span></a> </li>
                     <li><a href="episode.html"><i class="uil-youtube-alt"></i> <span> Tutorial</span></a> </li>
                     <li><a href="book.html"><i class="uil-book-alt"></i> <span> Book</span></a> </li>

@@ -18,8 +18,7 @@ class Module extends Model
         'name',
     ];
 
-    public function course()
-{
-    return $this->belongsTo(User::class);
-}
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

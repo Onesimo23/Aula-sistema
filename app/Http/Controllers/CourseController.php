@@ -14,8 +14,9 @@ class CourseController extends Controller
      * Display a listing of the resource.
      */
     public function getCourse(){
-        $users = User::where('role', 'teacher')->first();
-        return view('course.course', compact('users'));
+        $module = Module::all();
+        $user = User::all();
+        return view('course.course', compact('module', 'user'));
     }
 
     public function addCourse(){
@@ -50,8 +51,6 @@ class CourseController extends Controller
 
         ]);
 
-        $users = User::where('role', 'teacher')->first();
-
         $course = Course::create([
             'name' => $validatedData['name'],
             'description' => $validatedData['description'],
@@ -61,7 +60,7 @@ class CourseController extends Controller
             'user_id' => $validatedData['user_id'],
         ]);
 
-        $modulo = Module::create([
+        $module = Module::create([
             'name' => $validatedData['name'],
             'description' => $validatedData['description'],
         ]);
@@ -71,7 +70,7 @@ class CourseController extends Controller
             'description' => $validatedData['description'],
         ]);
 
-        return redirect()->route('user', compact('users'))->with('success', 'Usuário criado com sucesso!');
+        return redirect(compact('course', 'module', 'quizz'))->route('user')->with('success', 'Usuário criado com sucesso!');
     }
 
     /**

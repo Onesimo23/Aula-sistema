@@ -68,13 +68,12 @@
 <div id="modal-example" uk-modal="">
 <div class="uk-modal-dialog uk-modal-body">
 	<h2 class="uk-modal-title">Novo Curso</h2>
-        <form id="user-form" method="POST" action="">
-                    @csrf
-
-                    <div class="card">
-                    <div class="card-header border-bottom-0 py-4">
-                        <h5> Configuração dos Cursos </h5>
-                    </div>
+        <form id="user-form" method="POST" action="{{route('course.store')}}">
+            @csrf
+            <div class="card">
+            <div class="card-header border-bottom-0 py-4">
+                <h5> Configuração dos Cursos </h5>
+            </div>
 
 
         <ul class="uk-child-width-expand uk-tab" uk-switcher="connect: #course-edit-tab ; animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
@@ -112,13 +111,11 @@
                             <div class="form-group row mb-3">
                                 <label class="col-md-3 col-form-label" for="user_id"> Instrutor <span class="required">*</span></label>
                                 <div class="col-md-9">
-
-                                    <select class="selectpicker" name="user_id">
-                                        @foreach($users as $value)
-                                        <option value="{{$value->id}}">{{$value->name}}</option>
-                                        @endforeach()
-                                    </select>
-
+                                <select class="selectpicker" value="user_id" name="user_id">
+                                @foreach ($user as $value)
+                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
+                                </select>
                                 </div>
                             </div>
 
@@ -128,14 +125,14 @@
                                     <div class="uk-position-relative my-4">
 
                                             <div class="user-profile-photo  m-auto">
-                                                <img src="{{asset('assets\images\avatars\home-profile.jpeg')}}" alt="">
+                                                <img id="profileImage" src="" alt="">
                                             </div>
 
 
 
                                         <div class="uk-position-center">
                                             <div uk-form-custom="">
-                                                <input type="file" name="piture">
+                                                <input type="file" id="imageInput" name="piture">
                                                 <span class="uk-link icon-feather-camera icon-medium text-white"> </span>
                                             </div>
 
@@ -165,21 +162,23 @@
                             </div>
                         </div> <!-- end col -->
                         <div class="col-xl-9">
-                            <div class="form-group row mb-3">
-                                <label class="col-md-3 col-form-label" for="meta_description">Descrição</label>
-                                <div class="form-group row mb-3">
+                        <div class="form-group row mb-3">
                                 <label class="col-md-3 col-form-label" for="user_id"> Aula <span class="required">*</span></label>
                                 <div class="col-md-9">
-                                    <select class="selectpicker" name="user_id">
-                                        @foreach($lessons as $value)
-                                        <option value="{{$value->id}}">{{$value->name}}</option>
-                                        @endforeach()
+                                    <select class="selectpicker" name="lessons_id" value="lessons_id">
+
+                                        <option value=" "> </option>
+
                                     </select>
 
                                 </div>
                             </div>
+                        </div> <!-- end col -->
+                        <div class="col-xl-9">
+                            <div class="form-group row mb-3">
+                                <label class="col-md-3 col-form-label" for="meta_description">Descrição</label>
                                 <div class="col-md-9">
-                                    <textarea name="meta_description" class="form-control"></textarea>
+                                    <textarea name="description" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div> <!-- end col -->
@@ -191,7 +190,7 @@
                 <li>
 
 
-                    <script type="text/JavaScript">
+                    <!-- <script type="text/JavaScript">
                         function createNewElement() {
                 // First create a DIV element.
                 var txtNewInputBox = document.createElement('div');
@@ -202,7 +201,7 @@
                 // Finally put it where it is supposed to appear.
                 document.getElementById("newElementId").appendChild(txtNewInputBox);
             }
-            </script>
+            </script> -->
 
                     <div class="row justify-content-center">
                         <div class="col-xl-9">
@@ -211,9 +210,11 @@
 
                             <div id="newElementId"> </div>
 
-                            <input type='text' name="name" class='uk-input' placeholder="Adicionar o módulo">
-                            <select class="selectpicker">
-                                <option value=""> Admin 1 </option>
+                            <input type='text' name="name" class='uk-input' placeholder="Adicionar título do módulo">
+                            <select class="selectpicker" value="module_id" name="module_id">
+                            @foreach ($module as $value)
+                                <option value="{{$value->id}}">{{$value->name}}</option>
+                            @endforeach
                             </select>
 
                         </div>
@@ -227,7 +228,7 @@
                         <label class="col-md-3 col-form-label" for="course_title"> Estado do Curso <span class="required">*</span></label>
                         <div class="col-md-9">
 
-                            <select class="selectpicker">
+                            <select class="selectpicker" name="role">
                                 <option value="free"> Degraça </option>
                                 <option value="paid"> Pago </option>
                             </select>
@@ -296,7 +297,7 @@
 	</p>
 </div>
 </div>
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         var form = document.getElementById('create-course-modal');
         form.addEventListener('submit', function(event) {
@@ -305,5 +306,5 @@
             $('#create-course-modal').modal('hide');
         });
     });
-</script>
+</script> -->
 @endsection()

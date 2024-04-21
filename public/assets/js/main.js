@@ -46,7 +46,22 @@
 			});
 		});
 
+        $(function () {
+            function createNewElement() {
+                // First create a DIV element.
+                var txtNewInputBox = document.createElement('div');
 
+                // Then add the content (a new input box) of the element.
+                txtNewInputBox.innerHTML = "<input type='text' class='uk-input'>";
+
+                // Finally put it where it is supposed to appear.
+                document.getElementById("newElementId").appendChild(txtNewInputBox);
+            }
+            createNewElement();
+            $(window).resize(function () {
+                createNewElement();
+            });
+        });
 
 
 		/*----------------------------------------------------*/
@@ -97,12 +112,27 @@
 			return false;
 		});
 
+        const imageInput = document.getElementById('imageInput');
+        const profileImage = document.getElementById('profileImage');
+
+        imageInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+            profileImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(e.target.files[0]);
+        }
+        });
+
 
 
 		/*--------------------------------------------------*/
 		/*  NProgress
 		/*-------------------------------------------------- */
-		NProgress.start(); // start    
+		NProgress.start(); // start
 		NProgress.set(0.4); // To set a progress percentage, call .set(n), where n is a number between 0..1
 		NProgress.inc(); // To increment the progress bar, just use .inc(). This increments it with a random amount. This will never get to 100%: use it for every image load (or similar).If you want to increment by a specific value, you can pass that as a parameter
 		NProgress.configure({
@@ -118,7 +148,7 @@
 		NProgress.configure({
 			parent: '#wrapper'
 		}); //specify this to change the parent container. (default: body)
-		NProgress.done(); // end 
+		NProgress.done(); // end
 
 
 		// ------------------ End Document ------------------ //
@@ -257,6 +287,14 @@
 		return this;
 	};
 
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('create-course-modal');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            this.submit();
+            $('#create-course-modal').modal('hide');
+        });
+    });
 	/**
 	 * Hides the progress bar.
 	 * This is the *sort of* the same as setting the status to 100%, with the

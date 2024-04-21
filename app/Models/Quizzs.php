@@ -19,8 +19,7 @@ class Quizzs extends Model
         'description',
     ];
 
-    public function modulo()
-{
-    return $this->belongsTo(Module::class);
-}
+    public function module(){
+        return $this->belongsTo(Module::class, 'module_id');
+    }
 }

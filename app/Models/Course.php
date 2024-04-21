@@ -24,13 +24,7 @@ class Course extends Model
         'validate',
     ];
 
-    public function user()
-{
-    return $this->belongsTo(User::class);
-}
-
-public function module()
-{
-    return $this->hasMany(Module::class);
-}
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
