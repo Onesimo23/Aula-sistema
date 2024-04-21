@@ -16,7 +16,8 @@ class CourseController extends Controller
     public function getCourse(){
         $module = Module::all();
         $user = User::all();
-        return view('course.course', compact('module', 'user'));
+        $course = Course::all();
+        return view('course.course', compact('module', 'user', 'course'));
     }
 
     public function addCourse(){
@@ -44,10 +45,11 @@ class CourseController extends Controller
             'name' => 'required|string|max:255',
             'title' => 'request',
             'description' => 'required|',
-            'price' => 'required|double',
+            'price' => 'required',
             'role' => 'required|',
             'user_id' => 'required|',
             'validate' => 'required|date',
+            'picture' => 'required|'
 
         ]);
 
@@ -57,6 +59,7 @@ class CourseController extends Controller
             'price' => $validatedData['price'],
             'role' => $validatedData['role'],
             'validate' => $validatedData['validate'],
+            'picture' => $validatedData['picture'],
             'user_id' => $validatedData['user_id'],
         ]);
 

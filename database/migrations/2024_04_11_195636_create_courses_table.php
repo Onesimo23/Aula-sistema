@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->string('description');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->double('price');
             $table->enum('role',['free','paid']);
             $table->enum('validate',['lifetime','one_year']);

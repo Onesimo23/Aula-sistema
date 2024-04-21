@@ -27,13 +27,13 @@
     </div>
 
     <div class="uk-child-width-1-3@m" uk-grid="" uk-scrollspy="cls: uk-animation-slide-bottom-small; target: > div ; delay: 200">
-
+        @foreach ($course as $value )
         <div>
             <a href="#">
                 <div class="card animate-this uk-inline-clip">
                     <img src="{{asset('assets\images\course\2.png')}}" alt="">
                     <div class="card-body text-center pb-3">
-                        <h6 class=" mb-0"> Learn Angular Fundamentals </h6>
+                        <h6 class=" mb-0"> {{ $value->name }} </h6>
                     </div>
                     <div class="card-footer py-0 border-top-0">
                         <div class="row align-items-center text-center">
@@ -48,7 +48,7 @@
                 </div>
             </a>
         </div>
-
+        @endforeach
     </div>
 
 
@@ -133,7 +133,7 @@
                                         <div class="uk-position-center">
                                             <div uk-form-custom="">
                                                 <input type="file" id="imageInput" name="piture">
-                                                <span class="uk-link icon-feather-camera icon-medium text-white"> </span>
+                                                <span class="uk-link icon-feather-camera icon-medium text-black"> </span>
                                             </div>
 
                                         </div>
@@ -277,7 +277,7 @@
                                 <p class="w-75 mb-2 mx-auto"> Submeta se estiver de acordo.  </p>
 
                                 <div class="mb-3 mt-3">
-                                    <button type="button" class="btn btn-default">Salvar</button>
+                                    <button type="submit" class="btn btn-default">Salvar</button>
                                 </div>
                             </div>
                         </div> <!-- end col -->
