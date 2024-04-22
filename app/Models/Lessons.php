@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Module extends Model
+class Lessons extends Model
 {
     use HasFactory;
             /**
@@ -14,7 +14,11 @@ class Module extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'title',
+        'description',
+        'lesson_number',
+        'platform',
+        'video_link',
     ];
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Lessons;
 use App\Models\Module;
 use App\Models\Quizzs;
 use App\Models\User;
@@ -43,13 +44,14 @@ class CourseController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'title' => 'request',
+            'title' => 'required',
             'description' => 'required|',
             'price' => 'required',
             'role' => 'required|',
             'user_id' => 'required|',
             'validate' => 'required|date',
-            'picture' => 'required|'
+            'picture' => 'required|',
+            'platform' => 'required',
 
         ]);
 
@@ -65,15 +67,22 @@ class CourseController extends Controller
 
         $module = Module::create([
             'name' => $validatedData['name'],
-            'description' => $validatedData['description'],
+            'course_id' => $validatedData['course_id'],
+
         ]);
 
-        $quizz = Quizzs::class([
+        $lesson = Lessons::create([
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
+            'lesson_number' => $validatedData['lesson_number'],
+            'platform' => $validatedData['platform'],
+            'video_link' => $validatedData['video_link'],
+            'course_id' => $validatedData['course_id'],
+            'module_id' => $validatedData['module_id'],
+
         ]);
 
-        return redirect(compact('course', 'module', 'quizz'))->route('user')->with('success', 'Usuário criado com sucesso!');
+        return redirect(compact('course', 'module', 'lesson'))->route('user')->with('success', 'Usuário criado com sucesso!');
     }
 
     /**
