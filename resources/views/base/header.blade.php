@@ -5,7 +5,7 @@
 
     <!-- Basic Page Needs
     ================================================== -->
-    <title>Courseplus Learning HTML Template</title>
+    <title>Cursos Online</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Courseplus - Professional Learning Management HTML Template">
@@ -13,12 +13,12 @@
     <!-- Favicon -->
     <link href="{{asset('assets\images\favicon.png')}}" rel="icon" type="image/png">
 
-    <!-- CSS 
+    <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="{{asset('assets\css\style.css')}}">
     <link rel="stylesheet" href="{{asset('assets\css\night-mode.css')}}">
     <link rel="stylesheet" href="{{asset('assets\css\framework.css')}}">
-    <link rel="stylesheet" href="{{asset('assets\css\bootstrap.css')}}"> 
+    <link rel="stylesheet" href="{{asset('assets\css\bootstrap.css')}}">
 
     <!-- icons
     ================================================== -->
@@ -29,8 +29,8 @@
 
 <body>
 
-    <div id="wrapper">       
-       
+    <div id="wrapper">
+
 
         <!-- search overlay-->
         <div id="searchbox">
@@ -70,11 +70,11 @@
 
             <!-- logo -->
             <div class="logo uk-visible@s">
-                <a href="dashboard.html"> <i class=" uil-graduation-hat"></i> <span> Courseplus</span> </a>
+                <a href="dashboard.html"> <i class=" uil-graduation-hat"></i> <span> CurOne</span> </a>
             </div>
             <div class="page-menu-inner" data-simplebar="">
                 <ul data-submenu-title="Browse">
-                    <li><a href="courses.html"><i class="uil-play-circle"></i> <span> Courses</span></a> </li>
+                    <li><a href="{{route('course.index')}}"><i class="uil-play-circle"></i> <span> Courses</span></a> </li>
                     <li><a href="course-path.html"><i class="uil-rss-interface"></i> <span> Paths</span></a> </li>
                     <li><a href="episode.html"><i class="uil-youtube-alt"></i> <span> Tutorial</span></a> </li>
                     <li><a href="book.html"><i class="uil-book-alt"></i> <span> Book</span></a> </li>
@@ -577,7 +577,7 @@
                         <a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#">
                             <i class="uil-search icon-small"></i>
                         </a>
-                        
+
                         <!-- User icons -->
                             <a href="#" class="uil-user icon-small uk-hidden@s" uk-toggle="target: .header-widget ; cls: is-active">
                             </a>

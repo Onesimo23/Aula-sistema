@@ -36,7 +36,7 @@
                                     <i class="icon-feather-bookmark icon-small"></i>
                                 </div>
                             </div>
-                            <h4>Learn Angular Fundamentals </h4>
+                            <a href="{{route('description')}}"><h4>Learn Angular Fundamentals </h4></a>
                             <p> Learn how to build launch React web applications using .. </p>
                             <div class="course-card-footer">
                                 <h5> <i class="icon-feather-film"></i> 12 Lectures </h5>
@@ -66,12 +66,12 @@
                                 </div>
                             </div>
 
-                            <h4>Ultimate Web Developer Course </h4>
+                            <a href="{{route('description')}}"><h4>Ultimate Web Developer Course </h4></a>
                             <p> HTML is the building blocks of the web. It gives pages structure</p>
 
                             <div class="course-card-footer">
                                 <h5> <i class="icon-feather-film"></i> 33 Aulas </h5>
-                                <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a>
+                                {{-- <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a> --}}
                                 <h5> <i class="icon-feather-clock"></i> 26 Horas </h5>
                             </div>
                         </div>
@@ -84,7 +84,38 @@
                 <a href="course-intro.html">
                     <div class="course-card">
                         <div class="course-card-thumbnail ">
-                            <img src="..\assets\images\course\1.png">
+                            <img src="..\assets\images\course\3.png">
+                            <span class="play-button-trigger"></span>
+                        </div>
+                        <div class="course-card-body">
+                            <div class="course-card-info">
+                                <div>
+                                    <span class="catagroy">JavaScrip</span>
+                                </div>
+                                <div>
+                                    <i class="icon-feather-bookmark icon-small"></i>
+                                </div>
+                            </div>
+
+                            <a href="{{route('description')}}"><h4>The Complete JavaScript </h4></a>
+                            <p> JavaScript is how you build interactivity on the web..</p>
+
+                            <div class="course-card-footer">
+                                <h5> <i class="icon-feather-film"></i> 14 Aulas </h5>
+                                {{-- <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a> --}}
+                                <h5> <i class="icon-feather-clock"></i> 50 Horas </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+            <div>
+                <a href="course-intro.html">
+                    <div class="course-card">
+                        <div class="course-card-thumbnail ">
+                            <img src="..\assets\images\course\5.png">
                             <span class="play-button-trigger"></span>
                         </div>
                         <div class="course-card-body">
@@ -97,42 +128,11 @@
                                 </div>
                             </div>
 
-                            <h4>Ultimate Web Developer Course </h4>
+                            <a href="{{route('description')}}"><h4>Ultimate Web Developer Course </h4></a>
                             <p> HTML is the building blocks of the web. It gives pages structure</p>
-
                             <div class="course-card-footer">
-                                <h5> <i class="icon-feather-film"></i> 33 Aulas </h5>
-                                <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a>
-                                <h5> <i class="icon-feather-clock"></i> 26 Horas </h5>
-                            </div>
-                        </div>
-
-                    </div>
-                </a>
-
-            </div>
-            <div>
-                <a href="course-intro.html">
-                    <div class="course-card">
-                        <div class="course-card-thumbnail ">
-                            <img src="..\assets\images\course\2.png">
-                            <span class="play-button-trigger"></span>
-                        </div>
-                        <div class="course-card-body">
-                            <div class="course-card-info">
-                                <div>
-                                    <span class="catagroy">Angular</span>
-                                </div>
-                                <div>
-                                    <i class="icon-feather-bookmark icon-small"></i>
-                                </div>
-                            </div>
-
-                            <h4>Learn Angular Fundamentals </h4>
-                            <p> Learn how to build and launch React web applications using .. </p>
-                            <div class="course-card-footer">
-                                <h5> <i class="icon-feather-film"></i> 14 Lectures </h5>
-                                <h5> <i class="icon-feather-clock"></i> 55 Hours </h5>
+                                <h5> <i class="icon-feather-film"></i> 32 Aulas </h5>
+                                <h5> <i class="icon-feather-clock"></i> 46 Horas </h5>
                             </div>
                         </div>
 
@@ -148,23 +148,23 @@
                 <a href="course-intro.html">
                     <div class="course-card">
                         <div class="course-card-thumbnail ">
-                            <img src="..\assets\images\course\2.png">
+                            <img src="..\assets\images\course\6.png">
                             <span class="play-button-trigger"></span>
                         </div>
                         <div class="course-card-body">
                             <div class="course-card-info">
                                 <div>
-                                    <span class="catagroy">Angular</span>
+                                    <span class="catagroy">HTML</span>
                                 </div>
                                 <div>
                                     <i class="icon-feather-bookmark icon-small"></i>
                                 </div>
                             </div>
-                            <h4>Learn Angular Fundamentals </h4>
-                            <p> Learn how to build launch React web applications using .. </p>
+                            <a href="{{route('description')}}"><h4>Learn Modern HTML & CSS </h4></a>
+                            <p> HTML is the building blocks of the web. It gives pages structure</p>
                             <div class="course-card-footer">
-                                <h5> <i class="icon-feather-film"></i> 12 Lectures </h5>
-                                <h5> <i class="icon-feather-clock"></i> 64 Hours </h5>
+                                <h5> <i class="icon-feather-film"></i> 34 Aulas </h5>
+                                <h5> <i class="icon-feather-clock"></i> 60 Horas </h5>
                             </div>
                         </div>
 
@@ -177,7 +177,7 @@
                 <a href="course-intro.html">
                     <div class="course-card">
                         <div class="course-card-thumbnail ">
-                            <img src="..\assets\images\course\1.png">
+                            <img src="..\assets\images\course\7.png">
                             <span class="play-button-trigger"></span>
                         </div>
                         <div class="course-card-body">
@@ -190,13 +190,13 @@
                                 </div>
                             </div>
 
-                            <h4>Ultimate Web Developer Course </h4>
-                            <p> HTML is the building blocks of the web. It gives pages structure</p>
+                            <a href="{{route('description')}}"><h4>Bootstrap Introduction </h4></a>
+                            <p> Learn how to build your website using latest Bootstrap Modern ..</p>
 
                             <div class="course-card-footer">
-                                <h5> <i class="icon-feather-film"></i> 33 Aulas </h5>
-                                <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a>
-                                <h5> <i class="icon-feather-clock"></i> 26 Horas </h5>
+                                <h5> <i class="icon-feather-film"></i> 30 Aulas </h5>
+                                {{-- <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a> --}}
+                                <h5> <i class="icon-feather-clock"></i> 45 Horas </h5>
                             </div>
                         </div>
 
@@ -208,25 +208,25 @@
                 <a href="course-intro.html">
                     <div class="course-card">
                         <div class="course-card-thumbnail ">
-                            <img src="..\assets\images\course\1.png">
+                            <img src="..\assets\images\course\4.png">
                             <span class="play-button-trigger"></span>
                         </div>
                         <div class="course-card-body">
                             <div class="course-card-info">
                                 <div>
-                                    <span class="catagroy">HTML</span>
+                                    <span class="catagroy">Angular</span>
                                 </div>
                                 <div>
                                     <i class="icon-feather-bookmark icon-small"></i>
                                 </div>
                             </div>
 
-                            <h4>Ultimate Web Developer Course </h4>
-                            <p> HTML is the building blocks of the web. It gives pages structure</p>
+                            <a href="{{route('description')}}"><h4>Learn Angular Fundamentals </h4></a>
+                            <p> Learn how to build and launch React web applications using .. </p>
 
                             <div class="course-card-footer">
                                 <h5> <i class="icon-feather-film"></i> 33 Aulas </h5>
-                                <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a>
+                                {{-- <a href="{{route('description')}}"><h5> <i class="icon-feather-film"></i> Detalhes </h5></a> --}}
                                 <h5> <i class="icon-feather-clock"></i> 26 Horas </h5>
                             </div>
                         </div>
@@ -252,7 +252,7 @@
                                 </div>
                             </div>
 
-                            <h4>Learn Angular Fundamentals </h4>
+                            <a href="{{route('description')}}"><h4>Learn Angular Fundamentals </h4></a>
                             <p> Learn how to build and launch React web applications using .. </p>
                             <div class="course-card-footer">
                                 <h5> <i class="icon-feather-film"></i> 14 Lectures </h5>

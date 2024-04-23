@@ -18,14 +18,13 @@ class Course extends Model
         'user_id',
         'name',
         'description',
-        'piture',
+        'picture',
         'price',
         'role',
         'validate',
     ];
 
-    public function user()
-{
-    return $this->belongsTo(User::class);
-}
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

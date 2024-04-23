@@ -656,12 +656,12 @@
                             <div class="p-3">
 
                                 <p class="my-3 text-center">
-                                    <span class="uk-h1"> $12.99 </span>
-                                    <s class="uk-h4 text-muted"> $19.99 </s>
-                                    <s class="uk-h6 ml-1 text-muted"> $32.99 </s>
+                                    <span class="uk-h1"> $1200.00 </span>
+                                    <s class="uk-h4 text-muted"> $1500.00 </s>
+                                    <s class="uk-h6 ml-1 text-muted">Poupa $300.00 </s>
                                 </p>
 
-                                <p> ! Hour Left This price</p>
+                                <p> Garanta a sua vaga!</p>
 
                                 <div class="uk-child-width-1-2 uk-grid-small mb-4" uk-grid="">
                                     <div>
@@ -672,26 +672,26 @@
                                     </div>
                                 </div>
 
-                                <p class="uk-text-bold"> This Course Incluce </p>
+                                <p class="uk-text-bold"> Composcao do curso </p>
 
                                 <div class="uk-child-width-1-2 uk-grid-small" uk-grid="">
                                     <div>
-                                        <span><i class="uil-youtube-alt"></i> 28 hours video</span>
+                                        <span><i class="uil-youtube-alt"></i> 64 horas de video</span>
+                                    </div>
+                                    {{-- <div>
+                                        <span> <i class="uil-award"></i> Certificado </span>
+                                    </div> --}}
+                                    <div>
+                                        <span> <i class="uil-file-alt"></i> 12 Aulas </span>
                                     </div>
                                     <div>
-                                        <span> <i class="uil-award"></i> Certificate </span>
+                                        <span> <i class="uil-video"></i> Assista Offline </span>
                                     </div>
                                     <div>
-                                        <span> <i class="uil-file-alt"></i> 12 Article </span>
+                                        <span> <i class="uil-award"></i> Certificado </span>
                                     </div>
                                     <div>
-                                        <span> <i class="uil-video"></i> Watch Offline </span>
-                                    </div>
-                                    <div>
-                                        <span> <i class="uil-award"></i> Certificate </span>
-                                    </div>
-                                    <div>
-                                        <span> <i class="uil-clock-five"></i> Lifetime access </span>
+                                        <span> <i class="uil-clock-five"></i> Acesso Ilimitado </span>
                                     </div>
                                 </div>
                             </div>

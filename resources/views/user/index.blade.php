@@ -140,13 +140,17 @@
 <div class="uk-overflow-auto">
     <table id="users-table" class="uk-table">
         <thead>
+            {{-- <th>Table Heading</th> --}}
             <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Email</th>
                 <th scope="col">Nível de acesso</th>
                 <th scope="col">Acções</th>
             </tr>
-        </thead>
+</thead>
+
+
+
         <tbody class="list">
             @foreach ($users as $user)
             <tr>
@@ -208,7 +212,7 @@
             <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-           
+
         <p class="uk-text-right">
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
             <button class=" btn btn-danger" type="submit">Confirmar Exclusão</button>
@@ -263,3 +267,5 @@
 
 @endsection
 
+
+</script>
