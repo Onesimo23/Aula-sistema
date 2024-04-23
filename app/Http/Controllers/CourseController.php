@@ -49,7 +49,7 @@ class CourseController extends Controller
             'user_id' => $request->input('user_id'),
             'name' => $request->input('fname'),
             'description' => $request->description,
-            'highlighted' => $request->highlighted,
+            'highlighted' => $request->input('highlighted'),
             'picture' => $request->picture,
             'price' => $request->price,
             'role' => $request->role,
