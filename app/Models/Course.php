@@ -18,6 +18,7 @@ class Course extends Model
         'user_id',
         'name',
         'description',
+        'highlighted',
         'picture',
         'price',
         'role',

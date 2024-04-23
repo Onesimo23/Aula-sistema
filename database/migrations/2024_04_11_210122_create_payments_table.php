@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('course_id')->constrained();
-            $table->string('value');
+            $table->foreignId('course_registrations_id')->constrained();
+            // $table->foreignId('course_id')->constrained();
+            $table->decimal('value')->default(0);
             // $table->datetime('transation_date'); //o timestamp já vem com campos que armazenam 
             $table->enum('status',['paid','pending'])->default('pending');
             $table->timestamps();

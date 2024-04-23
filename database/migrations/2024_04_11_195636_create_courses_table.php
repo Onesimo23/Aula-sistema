@@ -16,10 +16,12 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->string('description');
-            $table->string('picture')->nullable();
-            $table->double('price');
+            $table->string('picture');
+            $table->boolean('highlighted')->default(0);
+            $table->decimal('price');
             $table->enum('role',['free','paid']);
             $table->enum('validate',['lifetime','one_year']);
+            $table->enum('status', ['draft', 'pending', 'rejected', 'approved'])->default('draft');
             $table->timestamps();
         });
     }
