@@ -19,9 +19,10 @@ class UserController extends Controller
     public function description(){
         return view('description');
     }
-    public function create()
+    public function create($id)
     {
-      return view('user.create');
+        $user = User::findOrFail($id);
+      return view('user.create', compact('user'));
     }
     public function store(Request $request)
     {

@@ -22,8 +22,8 @@
                             <img src="..\assets\images\avatars\home-profile.jpeg" alt="">
                         </div>
 
-                        <h4 class="mb-2 mt-3"> Elie Daniels </h4>
-                        <p class="m-0"> Member since Sep 23 2017 </p>
+                        <h4 class="mb-2 mt-3"> {{$user->name}} </h4>
+                        <p class="m-0"> </p>
 
                     </div>
 
@@ -103,21 +103,15 @@
                         <hr class="m-0">
                         <div class="uk-child-width-1-2@s uk-grid-small p-4" uk-grid="">
                             <div>
-                                <h6 class="uk-text-bold"> First Name 
-                                    <p> Elie </p>
+                                <h6 class="uk-text-bold"> Nome 
+                                    <p> {{$user->name}} </p>
                             </h6></div>
+                            
                             <div>
-                                <h6 class="uk-text-bold"> Seccond Name 
-                                    <p> Elie </p>
+                                <h6 class="uk-text-bold"> Email
+                                    <p> {{$user->email}} </p>
                             </h6></div>
-                            <div>
-                                <h6 class="uk-text-bold"> Your email address 
-                                    <p> eliedaniels@gmail.com </p>
-                            </h6></div>
-                            <div>
-                                <h6 class="uk-text-bold"> Phone 
-                                    <p> +1 555 623 568 </p>
-                            </h6></div>
+                           
 
                         </div>
                     </div>

@@ -153,15 +153,10 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role }}</td>
-                <td>
-                    <div class="progress" style="height: 7px;">
-                        <div class="progress-bar" role="progressbar" style="width: 45%;"></div>
-                    </div>
-                </td>
                 <td class="text-right">
                     <!-- Actions -->
                     <div class="actions ml-3">
-                        <a class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Quick view">
+                    <a href="{{ route('detalhes', ['id' => $user->id]) }}" class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Ver detalhes">
                             <i class="uil-external-link-alt "></i> </a>
                         <a href="#edit_modal" uk-toggle class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Edit">
                             <i class="uil-pen "></i> </a>
