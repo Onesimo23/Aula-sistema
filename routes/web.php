@@ -20,6 +20,8 @@ Route::get('/description', [UserController::class, 'description'])->name('descri
 Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index'); //rotas por ver
 Route::post('course', [CourseController::class, 'store'])->name('course.store');
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+// Route::get('detalhes', [UserController::class, 'create'])->name('detalhes');
+Route::get('detalhes/{id}', [UserController::class, 'create'])->name('detalhes');
+
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
