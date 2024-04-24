@@ -185,14 +185,14 @@
     <div class="uk-modal-dialog uk-modal-body">
     <h1>Confirmação de Exclusão de Incrição</h1>
             <p>Você tem certeza que deseja excluir a inscrição?</p>
-            @foreach ($inscription as $item)
+@foreach ($inscription as $item)
             <form action="" method="POST">
                 @csrf
                 @method('DELETE')
                 <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
                 <button class=" btn btn-danger" type="submit">Confirmar Exclusão</button>
                     </form>
-        @endforeach
+@endforeach
 
         {{-- <p class="uk-text-right">
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>

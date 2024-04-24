@@ -5,11 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
-<<<<<<< HEAD
 use App\Http\Controllers\PaymentController;
-=======
 use App\Http\Controllers\InscriptionController;
->>>>>>> 2a200d34a20b9ad6e326f7b5a2f1d6f4503d79b6
 
 Route::get('/', function () {
     return view('dashboard');
