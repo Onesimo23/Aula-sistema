@@ -31,6 +31,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
+            'role',
             
         ]);
 
@@ -38,7 +39,8 @@ class UserController extends Controller
         $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password']),          
+            'password' => bcrypt($validatedData['password']),  
+            'role' => $validatedData['role'],        
         ]);
 
         return redirect()->route('user')->with('success', 'Usuário criado com sucesso!');
