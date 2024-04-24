@@ -54,25 +54,27 @@ class CourseController extends Controller
             'price' => $request->price,
             'role' => $request->role,
             'validate' => $request->validate,
-
         ]);
+
         $module = Module::create([
-            'name' => $request->input('name'),
-            'course_id' => $request->input('course_id'),
+            'name' => $request->input('modulename'),
+            'course_id' => $course->id,
         ]);
 
+
+
+        // $moduleID = $request->input('module_id');
 
         $lesson = Lessons::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'lesson_number' => $request->lesson_number,
-            'platform' => $request->platform,
-            'video_link' => $request->video_link,
-            'user_id' => $request->user_id,
-
+            'module_id' => $module->id,
+            'title' => $request->input('title_lesson'),
+            'description' => $request->input('description'),
+            'lesson_number' => $request->input('lesson_number'),
+            'platform' => $request->input('platform_name'),
+            'video_link' => $request->input('video_link'),
         ]);
+return view('dashboard', compact('course', 'module', 'lesson'));
 
-        return redirect(compact('course', 'module', 'lesson'))->route('user')->with('success', 'Usuário criado com sucesso!');
     }
 
     /**

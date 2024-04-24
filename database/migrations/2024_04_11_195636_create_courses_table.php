@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('picture');
-            $table->boolean('highlighted')->default(false);
+            $table->enum('highlighted', ['true', 'false'])->default('false');
             $table->decimal('price');
             $table->enum('role',['free','paid']);
             $table->enum('validate',['lifetime','one_year']);
