@@ -215,7 +215,7 @@
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Titulo</label>
                                                 <div class="col-md-9">
                                                     <input type="text" class="form-control" id="title_lesson" name="title_lesson" placeholder="Título da aula">
-
+                                                    <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -230,8 +230,8 @@
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Nr da aula</label>
                                                 <div class="col-md-9">
-                                                    <input type="numeric" class="form-control bootstrap-tag-input" id="numero_licao" name="numero_licao" style="width: 100%;">
-
+                                                    <input type="number" class="form-control" id="lesson_number" name="lesson_number" style="width: 100%;">
+                                                    <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -239,8 +239,8 @@
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Plataforma</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control bootstrap-tag-input" id="platform_name" name="platform_name"  style="width: 100%; ">
-
+                                                    <input type="text" class="form-control bootstrap-tag-input" id="platform_name" name="platform_name"  style="width: 100%;">
+                                                    <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -248,8 +248,8 @@
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Link da aula</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control bootstrap-tag-input" id="video_link" name="video_link"  style="width: 100%; ">
-
+                                                    <input type="text" class="form-control bootstrap-tag-input" id="video_link" name="video_link" data-role="tagsinput" style="width: 100%; ">
+                                                    <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -297,8 +297,9 @@
         </script>
 
 <script>
-    document.querySelector('form').addEventListener('submit', function(event) {
-       var courseName = document.getElementById('modulename').value;
-       document.getElementById('modulo_name').value = modulo_name;
+    document.getElementById('user-form').addEventListener('submit', function(event) {
+       var moduleName = document.getElementById('modulename').value;
+       document.getElementById('modulo_name').value = moduleName;
    });
 </script>
+
