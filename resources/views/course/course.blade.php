@@ -95,6 +95,7 @@
                                                 <label class="col-md-3 col-form-label" for="course_title">Nome do Curso<span class="required">*</span></label>
                                                 <div class="col-md-9">
                                                     <input type="text" class="form-control" id="fname" name="fname" placeholder="Digita o título do curso" value="" required="">
+                                                    <input type="hidden" id="course_name" name="course_name" value="">
                                                 </div>
                                             </div>
 
@@ -193,21 +194,19 @@
                                     <div class="row justify-content-center">
                                         <div class="col-xl-9">
                                             <div class="form-group row mb-3">
-                                            <input type="hidden" id="course_id" name="course_id" value="$course->name" >
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Nome do módulo</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control bootstrap-tag-input" id="title" name="title" data-role="tagsinput" style="width: 100%; display: none;">
-                                                    <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
-                                                    </div>
+                                                    <input type="text" class="form-control" id="modulename" name="modulename" style="width: 100%;">
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
-
                                 </li>
 
+                                {{-- Lesson wizard --}}
+                                
                                 <li>
-
                                     <div class="row justify-content-center">
                                         <div class="col-xl-9">
                                             <div class="form-group row mb-3">
@@ -288,3 +287,11 @@
             </div>
         </div>
         @endsection()
+        <script>
+             document.querySelector('form').addEventListener('submit', function(event) {
+                var courseName = document.getElementById('fname').value;
+                document.getElementById('course_name').value = courseName;
+            });
+        </script>
+
+
