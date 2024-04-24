@@ -19,6 +19,7 @@ class Lessons extends Model
         'lesson_number',
         'platform',
         'video_link',
+        'module_id'
     ];
 
 }
