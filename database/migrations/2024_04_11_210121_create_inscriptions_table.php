@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('course_id')->constrained();
-            $table->date('date_registration');
-            $table->enum('status',['pending','active','completed', 'canceled']);
+            $table->date('date_registration')->nullable();
+            $table->enum('status',['pending','active','completed', 'canceled'])->default('pending');
             $table->timestamps();
         });
     }

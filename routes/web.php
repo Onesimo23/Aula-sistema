@@ -18,10 +18,11 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::post('register', [RegisterController::class, 'register']);
 Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('/description', [UserController::class, 'description'])->name('description');
-Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index'); 
+Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index');
 Route::get('/inscriptions', [InscriptionController::class, 'index'])->name('inscription.index');
-Route::post('/inscription', [InscriptionController::class, 'store'])->name('inscription.store');
-Route::post('/inscriptionUp', [InscriptionController::class, 'update'])->name('inscription.update');
+Route::post('/inscriptions', [InscriptionController::class, 'store'])->name('inscription.store');
+Route::put('/inscriptionUp/{inscription}', [InscriptionController::class, 'update'])->name('inscription.update');
+// Route::post('/inscriptionUp', [InscriptionController::class, 'update'])->name('inscription.update');
 Route::delete('/inscription/{inscription}', [InscriptionController::class, 'destroy'])->name('inscription.destroy');//rotas por ver
 Route::post('course', [CourseController::class, 'store'])->name('course.store');
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
