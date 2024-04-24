@@ -5,7 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+<<<<<<< HEAD
+use App\Http\Controllers\PaymentController;
+=======
 use App\Http\Controllers\InscriptionController;
+>>>>>>> 2a200d34a20b9ad6e326f7b5a2f1d6f4503d79b6
 
 Route::get('/', function () {
     return view('dashboard');
@@ -31,3 +35,8 @@ Route::get('detalhes/{id}', [UserController::class, 'create'])->name('detalhes')
 
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+Route::post('/payments', [PaymentController::class, 'create'])->name('payments.create');
+Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
+
