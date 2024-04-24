@@ -56,11 +56,11 @@ class CourseController extends Controller
             'validate' => $request->validate,
 
         ]);
-
         $module = Module::create([
-            'name' => $request->input('title'),
-            'course_id' =>$request->input('course_id'),
+            'name' => $request->input('name'),
+            'course_id' => $request->input('course_id'),
         ]);
+
 
         $lesson = Lessons::create([
             'title' => $request->title,
