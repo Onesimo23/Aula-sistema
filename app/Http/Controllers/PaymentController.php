@@ -1,38 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Course;
 
 use Illuminate\Http\Request;
+use App\Models\Payment;
+use App\Models\Course;
+use App\Models\User;
 
 class PaymentController extends Controller
 {
     public function index()
     {
-         $courses = course::all();
-        return view('payment', compact('courses'));
+        $payments = Payment::all();
+        $user = User::all();
+        $course = Course::all();
+        return view('payment', ['payments' => $payments, 'course' => $course, 'user' => $user]);
     }
 
-    public function create()
-    {
-        $courses = course::all();
-        return view('payment.create', compact('courses'));
-    }
     public function store(Request $request)
     {
-        // Valide os dados recebidos do modal
-        $request->validate([
-            'course_registrations_id' => 'required',
-            'value' => 'required|numeric',
-            'status' => 'required|in:paid,pending',
-        ]);
+            $payment = Payment::create([
+                'user_id' => $request->user_id,
+                'course_id' => $request->course_id,
+                'status' => $request->input('status')
+            ]);
+            return redirect()->route('payment.index')->with(['success' => 'Inscrição criada com sucesso!', 'payments' => $payment]);
+        }
 
-        $payment = new Payment();
-        $payment->course_registrations_id = $request->input('course_registrations_id');
-        $payment->value = $request->input('value');
-        $payment->status = $request->input('value');
-        $payment->save();
-
-        return response()->json(['success' => true]);
-    }
 }

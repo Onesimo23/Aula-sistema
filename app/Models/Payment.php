@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    // use HasFactory;
-    public function course()
+    protected $fillable = [
+        'user_id',
+        'course_id',
+        'status',
+    ];
+
+
+    public function paymentStatus()
     {
-        return $this->belongsTo(Course::class);
+        return $this->status;
     }
 }

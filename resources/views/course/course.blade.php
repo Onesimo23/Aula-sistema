@@ -36,10 +36,12 @@
                         <div class="card-footer py-0 border-top-0">
                             <div class="row align-items-center text-center">
                                 <div class="col-6 py-3">
-                                    <a href="#" class="text-muted"> Editar</a>
+                                    <a href="" class="text-muted" uk-toggle="target: #edit-modal"> Editar</a>
                                 </div>
                                 <div class="col-6 py-3">
-                                    <a href="#" class="danger-text-muted">Apagar </a>
+                                    <button class="btn btn-outline-primary" type="button" uk-toggle="target: #modal-examp" data-course="{{ $value->name }}" data-price="{{ $value->price }}">Pagar</button>
+                                    {{-- <button class="btn btn-outline-primary" type="button" uk-toggle="target: #modal-examp" data-course="{{ $value->name }}" data-price="{{ $value->price }}">Pagar</button> --}}
+
                                 </div>
                             </div>
                         </div>
@@ -49,6 +51,88 @@
             @endforeach
         </div>
 
+        <!-- This is the modal1 -->
+        <div id="modal-examp" uk-modal="">
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title">Complete a sua inscrição</h2>
+                <form method="POST" action="{{ route('payments.store') }}">
+                    @csrf
+                    <div>
+                        <div class="uk-form-group">
+                            <label class="uk-form-label" for="user_id">Nome do usuário</label>
+                            <div class="uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-user"></i>
+                                </span>
+                                <select class="selectpicker" value="user_id" name="user_id">
+                                    @foreach ($user as $value)
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-form-group">
+                            <label class="uk-form-label" for="course_id">Curso</label>
+                            <div class="uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-mail"></i>
+                                </span>
+                                <select class="selectpicker" value="course_id" name="course_id">
+                                    @foreach ($course as $value)
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-form-group">
+                            <label class="uk-form-label" for="">Valor</label>
+                            <div class="uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-mail"></i>
+                                </span>
+                                <select class="selectpicker" value="course_id" name="">
+                                    @foreach ($course as $value)
+                                    <option value="{{$value->id}}">{{$value->price}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <select class="uk-select" id="statusSelect" name="status">
+                            <option value="">Selecione</option>
+                            <option value="pending">Pendente</option>
+                            <option value="paid">Concluído</option>
+                        </select>
+                    </div>
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button class="uk-button uk-button-primary" type="submit">Save</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+<!-- End This is the modal1 -->
+
+<script>
+    // Adicione um evento de clique para cada botão "Pagar"
+    document.querySelectorAll('.btn-outline-primary').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var cursoNome = this.getAttribute('data-course');
+            var cursoValor = this.getAttribute('data-price');
+            document.getElementById('course_id').value = cursoNome;
+            document.getElementById('price').value = cursoValor;
+            UIkit.modal('#modal-examp').show();
+        });
+    });
+</script>
+
 
         <ul class="uk-pagination my-5 uk-flex-center" uk-margin="">
             <li class="uk-active"><span>1</span></li>
@@ -57,10 +141,6 @@
             <li class="uk-disabled"><span>...</span></li>
             <li><a href="#"><span uk-pagination-next=""></span></a></li>
         </ul>
-
-        <!-- This is a button toggling the modal -->
-
-        <!-- This is an anchor toggling the modal -->
 
         <!-- This is the modal -->
         <div id="modal-example" uk-modal="">
@@ -197,11 +277,12 @@
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Nome do módulo</label>
                                                 <div class="col-md-9">
                                                     <input type="text" class="form-control" id="modulename" name="modulename" style="width: 100%;">
+                                                    <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
+                                                    </div>
                                                 </div>
-                                            </div>
 
+                                            </div>
                                         </div>
-                                    </div>
                                 </li>
 
                                 {{-- Lesson wizard --}}
@@ -230,7 +311,7 @@
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Nr da aula</label>
                                                 <div class="col-md-9">
-                                                    <input type="number" class="form-control" id="lesson_number" name="lesson_number" style="width: 100%;">
+                                                    <input type="number" class="form-control" id="lesson_number" name="lesson_number" data-role="tagsinput" style="width: 100%; display: none;">
                                                     <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
                                                     </div>
                                                 </div>
@@ -239,7 +320,7 @@
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Plataforma</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control bootstrap-tag-input" id="platform_name" name="platform_name"  style="width: 100%;">
+                                                    <input type="text" class="form-control bootstrap-tag-input" id="platform_name" name="platform_name" data-role="tagsinput" style="width: 100%; display: none;">
                                                     <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
                                                     </div>
                                                 </div>
@@ -248,7 +329,7 @@
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-3 col-form-label" for="website_keywords">Link da aula</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control bootstrap-tag-input" id="video_link" name="video_link" data-role="tagsinput" style="width: 100%; ">
+                                                    <input type="text" class="form-control bootstrap-tag-input" id="video_link" name="video_link" data-role="tagsinput" style="width: 100%; display: none;">
                                                     <div class="bootstrap-tagsinput"><input size="1" type="text" placeholder="">
                                                     </div>
                                                 </div>
@@ -288,18 +369,45 @@
                 </p>
             </div>
         </div>
-        @endsection()
+
+        <!-- For Edit modal -->
+                <!-- This is the modal -->
+                <div id="edit-modal" uk-modal="">
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title">Novo Curso</h2>
+               
+                <p class="uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    @endsection()
         <script>
-             document.querySelector('form').addEventListener('submit', function(event) {
+            document.querySelector('form').addEventListener('submit', function(event) {
                 var courseName = document.getElementById('fname').value;
                 document.getElementById('course_name').value = courseName;
             });
         </script>
 
-<script>
-    document.getElementById('user-form').addEventListener('submit', function(event) {
-       var moduleName = document.getElementById('modulename').value;
-       document.getElementById('modulo_name').value = moduleName;
-   });
-</script>
+        <script>
+            document.getElementById('user-form').addEventListener('submit', function(event) {
+                var moduleName = document.getElementById('modulename').value;
+                document.getElementById('modulo_name').value = moduleName;
+            });
+        </script>
+          <script>
+      document.querySelector('form2').addEventListener('submit', function(event) {
+          var courseName = document.getElementById('fname').value;
+          document.getElementById('course_name').value = courseName;
+      });
+  </script>
 
+  <script>
+      document.getElementById('user-form2').addEventListener('submit', function(event) {
+          var moduleName = document.getElementById('modulename').value;
+          document.getElementById('modulo_name').value = moduleName;
+      });
+  </script>
