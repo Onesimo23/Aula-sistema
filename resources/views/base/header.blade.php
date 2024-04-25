@@ -74,6 +74,7 @@
             </div>
             <div class="page-menu-inner" data-simplebar="">
                 <ul data-submenu-title="Browse">
+                    <li><a href="{{route('category.index')}}"><i class="uil-play-circle"></i> <span> Categorias</span></a> </li>
                     <li><a href="{{route('course.index')}}"><i class="uil-play-circle"></i> <span> Courses</span></a> </li>
                     <li><a href="{{route('inscription.index')}}"><i class="uil-rss-interface"></i> <span> Inscriptions</span></a> </li>
                     <li><a href="episode.html"><i class="uil-youtube-alt"></i> <span> Tutorial</span></a> </li>
