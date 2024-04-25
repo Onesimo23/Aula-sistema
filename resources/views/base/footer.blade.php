@@ -1,5 +1,5 @@
 
-</div>
+{{-- </div>
 <div class="footer">
                     <div class="uk-grid-collapse" uk-grid="">
                         <div class="uk-width-expand@s uk-first-column">
@@ -17,12 +17,12 @@
                         </div>
                     </div>
                 </div>
-    
-    
+
+
             </div>
 
         </div>
-</div>
+</div> --}}
     </div>
     <style>
     .password-match-error {

@@ -26,5 +26,5 @@ class PaymentController extends Controller
             ]);
             return redirect()->route('payment.index')->with(['success' => 'Inscrição criada com sucesso!', 'payments' => $payment]);
         }
-    
+
 }
