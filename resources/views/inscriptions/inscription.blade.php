@@ -58,30 +58,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="uk-width-1-2@s">
-                        <div class="uk-form-group">
-                            <label class="uk-form-label">Data de Registro</label>
-                            <div class="uk-position-relative w-100">
-                                <span class="uk-form-icon">
-                                    <i class="icon-feather-lock"></i>
-                                </span>
-                                <input class="uk-input" type="date" name="date_registration" id="date_registration" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-form-group">
-                            <label class="uk-form-label">Status da Inscrição</label>
-                            <div class="uk-position-relative w-100">
-                                <select class="uk-select" name="status" required>
-                                    <option value="pending">Pendente</option>
-                                    <option value="active">Activo</option>
-                                    <option value="completed">Completo</option>
-                                    <option value="canceled">Cancelado</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                    <input type="hidden" name="status" value="pending" id="status" display: none>
+
+
 
                     <p class="uk-text-right">
                         <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
@@ -141,7 +120,6 @@
             <tr>
                 <th scope="col">Nome do Usuário</th>
                 <th scope="col">Curso</th>
-                <th scope="col">Data da inscrição</th>
                 <th scope="col">Estado da Inscrição</th>
                 <th scope="col">Acções</th>
             </tr>
@@ -150,11 +128,10 @@
 
 
         <tbody class="list">
-            @foreach ($inscriptions as $inscription)
+            @foreach ($inscription as $inscription)
             <tr>
                 <td>{{ $inscription->user->name }}</td>
                 <td>{{ $inscription->course->name }}</td>
-                <td>{{ $inscription->date_registration }}</td>
                 <td>{{ $inscription->status }}</td>
                 <td class="text-right">
                     <!-- Actions -->
@@ -172,52 +149,35 @@
         </tbody>
     </table>
 </div>
-
+{{-- modal de editar --}}
 <div id="edit_modal" uk-modal="">
     <div class="uk-modal-dialog uk-modal-body">
         <h2 class="uk-modal-title">Editar Usuarios</h2>
-        <form action="{{ route('inscription.update', $inscription->id) }}" method="POST">
+        <form action="{{ route('inscription.update', $inscription) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
                 <label for="user_id">Nome do Usuário</label>
-                @foreach($user as $user)
-                <input type="text" class="form-control" id="user_id" name="user_id" value="{{ $user->name }}" required>
-                @endforeach
-
+                <select class="form-control" id="user_id" name="user_id" required>
+                    @foreach($user as $u)
+                        <option value="{{ $u->id }}" {{ $inscription->user_id == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="course_id">Curso</label>
-                @foreach($course as $course)
-                <input type="text" class="form-control" id="course_id" name="course_id" value="{{ $course->name}}" required>
-                @endforeach
-            </div>
-            <div class="uk-width-1-2@s">
-                <div class="uk-form-group">
-                    <label class="uk-form-label">Data de Inscrição</label>
-                    <div class="uk-position-relative w-100">
-                        <span class="uk-form-icon">
-                            <i class="icon-feather-lock"></i>
-                        </span>
-                        <input class="uk-input" type="date" value="{{ $inscription->date_registration }}" name="date_registration" id="date_registration" required>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="status">Estado da Inscrição</label>
-                <select class="form-control" id="status" name="status" required>
-                    <option value="pending" {{ $inscription->role == 'pending' ? 'selected' : '' }}>Pendente</option>
-                    <option value="active" {{ $inscription->role == 'active' ? 'selected' : '' }}>Activo</option>
-                    <option value="completed" {{ $inscription->role == 'completed' ? 'selected' : '' }}>Completo</option>
-                    <option value="canceled" {{ $inscription->role == 'canceled' ? 'selected' : '' }}>Cancelado</option>
+                <select class="form-control" id="course_id" name="course_id" required>
+                    @foreach($course as $c)
+                        <option value="{{ $c->id }}" {{ $inscription->course_id == $c->id ? 'selected' : '' }}>{{ $c->name }}</option>
+                    @endforeach
                 </select>
             </div>
-
             <p class="uk-text-right">
                 <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
                 <button class="uk-button uk-button-primary" type="submit">Save</button>
             </p>
         </form>
+
     </div>
 </div>
 
@@ -229,16 +189,31 @@
                 @csrf
                 @method('DELETE')
 
-        <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class=" btn btn-danger" type="submit">Confirmar Exclusão</button>
+                    </form>
+
+        {{-- <p class="uk-text-right">
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
             <button class=" btn btn-danger" type="submit">Confirmar Exclusão</button>
         </p>
-        </form>
+        </form> --}}
     </div>
 </div>
 
 
 @endsection
 
+
+<script>
+document.querySelector('#registerForm').addEventListener('submit', function(event) {
+    var currentDate = new Date().toISOString().split('T')[0];
+    document.getElementById('date_registration').value = currentDate;
+});
+
+document.getElementById('edit_modal').addEventListener('show.uk.modal', function(event) {
+    var currentDate = new Date().toISOString().split('T')[0];
+    document.getElementById('date_registration_edit').value = currentDate;
+});
 
 </script>
