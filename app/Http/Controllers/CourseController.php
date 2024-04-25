@@ -73,7 +73,7 @@ class CourseController extends Controller
             'platform' => $request->input('platform_name'),
             'video_link' => $request->input('video_link'),
         ]);
-return view('dashboard', compact('course', 'module', 'lesson'));
+        return view('dashboard', compact('course', 'module', 'lesson'));
 
     }
 
@@ -88,17 +88,37 @@ return view('dashboard', compact('course', 'module', 'lesson'));
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Course $course)
+    public function edit(Course $course, Module $module, Lessons $lesson, $id)
     {
-        //
+        $course = Course::findOrFail($id);
+        $module = Module::findOrFail($id);
+        $lesson = Lessons::findOrFail($id);
+
+        compact('course', 'module', 'lesson');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, Course $course,Module $module, Lessons $lesson, $id)
     {
-        //
+        $course = Course::findOrFail($id); // Find the course by ID
+        $module = Module::findOrFail($id);
+        $lesson = Lessons::findOrFail($id);
+
+        $data = $request->validate([
+            // Define validation rules for course data
+            $data = request()->all()
+        ]);
+
+        $course->update($data);
+        $module->update($data);
+        $lesson->update($data);
+
+        return redirect()->route('course')->with('success', 'Course updated successfully!');
+
+        //return redirect()->route('course', compact('course', 'module', 'lesson'));
+        //return view('course.course', compact('course', 'module', 'lesson'));
     }
 
     /**
