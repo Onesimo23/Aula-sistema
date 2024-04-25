@@ -70,22 +70,19 @@
                         <table class="table align-items-center">
                             <thead>
                                 <tr>
-                                    <th scope="col">Usuario</th>
                                     <th scope="col">Curso</th>
                                     <th scope="col">Valor</th>
                                     <th scope="col">Estado</th>
-                                    <th scope="col">Accoes</th>
                                 </tr>
                             </thead>
 
                             @foreach ($payments as $payment)
                             <tr>
-                                <td>{{ optional($payment->user)->name }}</td>
-                                <td>{{ optional($payment->course)->name }}</td>
-                                <td>{{ optional($payment->course)->price }}</td>
-                                <td>{{ $payment->status }}</td>
+                            <td>{{ $payment->course->name }}</td>
+                            <td>{{ $payment->course->price }}</td>
+                            <td>{{ $payment->status }}</td>
                             </tr>
-                            @endforeach
+                                @endforeach
                         </table> <!-- Table -->
                     </div>
 
@@ -95,7 +92,7 @@
 
         <!-- For Night mode -->
         <script>
-            (function(window, document, undefined) {
+            (function (window, document, undefined) {
                 'use strict';
                 if (!('localStorage' in window)) return;
                 var nightMode = localStorage.getItem('gmtNightMode');
@@ -104,7 +101,7 @@
                 }
             })(window, document);
 
-            (function(window, document, undefined) {
+            (function (window, document, undefined) {
                 'use strict';
                 // Feature test
                 if (!('localStorage' in window)) return;
@@ -112,7 +109,7 @@
                 var nightMode = document.querySelector('#night-mode');
                 if (!nightMode) return;
                 // When clicked, toggle night mode on or off
-                nightMode.addEventListener('click', function(event) {
+                nightMode.addEventListener('click', function (event) {
                     event.preventDefault();
                     document.documentElement.classList.toggle('night-mode');
                     if (document.documentElement.classList.contains('night-mode')) {
@@ -124,8 +121,7 @@
             })(window, document);
         </script>
 
-    </div>
-</body>
+</div></body>
 
 </html>
 @endsection()

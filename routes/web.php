@@ -20,6 +20,7 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('/description', [UserController::class, 'description'])->name('description');
 Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index');
+Route::put('/course/{id}', [CourseController::class, 'update'])->name('course.update');
 Route::get('/inscriptions', [InscriptionController::class, 'index'])->name('inscription.index');
 Route::post('/inscriptions', [InscriptionController::class, 'store'])->name('inscription.store');
 Route::put('/inscriptionUp/{inscription}', [InscriptionController::class, 'update'])->name('inscription.update');
@@ -33,7 +34,6 @@ Route::get('detalhes/{id}', [UserController::class, 'create'])->name('detalhes')
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
-Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
-Route::post('/payments', [PaymentController::class, 'create'])->name('payments.create');
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
 
