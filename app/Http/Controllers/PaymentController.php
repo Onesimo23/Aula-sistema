@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Course;
 
 use Illuminate\Http\Request;
 
@@ -8,7 +9,8 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        return view('payment');
+         $courses = course::all();
+        return view('payment', compact('courses'));
     }
 
     public function create()

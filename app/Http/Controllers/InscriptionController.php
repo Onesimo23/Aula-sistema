@@ -64,7 +64,7 @@ class InscriptionController extends Controller
     public function update(Request $request, Inscription $inscription)
 {
     $request->validate([
-        'user_id' => 'required', // Adicione as regras de validação necessárias para os campos
+        'user_id' => 'required',
         'course_id' => 'required',
         'date_registration' => 'required',
         'status' => 'required'
