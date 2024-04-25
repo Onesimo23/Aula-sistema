@@ -26,7 +26,7 @@ Route::get('/inscriptions', [InscriptionController::class, 'index'])->name('insc
 Route::post('/inscriptions', [InscriptionController::class, 'store'])->name('inscription.store');
 Route::put('/inscriptionUp/{inscription}', [InscriptionController::class, 'update'])->name('inscription.update');
 // Route::post('/inscriptionUp', [InscriptionController::class, 'update'])->name('inscription.update');
-Route::delete('/inscription/{inscription}', [InscriptionController::class, 'destroy'])->name('inscription.destroy');//rotas por ver
+Route::delete('/inscription/{inscription}', [InscriptionController::class, 'destroy'])->name('inscription.destroy'); //rotas por ver
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 // Route::get('detalhes', [UserController::class, 'create'])->name('detalhes');
 Route::get('detalhes/{id}', [UserController::class, 'create'])->name('detalhes');
@@ -45,19 +45,19 @@ Route::post('/payments', [PaymentController::class, 'store'])->name('payments.st
 
 //Rotas de Categorias
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/category/create',[ CategoryController::class,'create'])->name('category.create');
-Route::post('/category',[ CategoryController::class,'store'])->name('category.store');
-Route::get('/category/{id}/edit',[CategoryController::class,'edit'])->name('category.edit');
-Route::put('/category/{id}',[CategoryController::class,'update'])->name('category.update');
-Route::get('/category/{id}',[CategoryController::class,'show'])->name('category.show');
-Route::delete('/category/{id}',[CategoryController::class,'destroy'])->name('category.destroy');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
+Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 
 //Rotas de Categorias
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/category/create',[ CategoryController::class,'create'])->name('category.create');
-Route::post('/category',[ CategoryController::class,'store'])->name('category.store');
-Route::get('/category/{id}/edit',[CategoryController::class,'edit'])->name('category.edit');
-Route::put('/category/{id}',[CategoryController::class,'update'])->name('category.update');
-Route::get('/category/{id}',[CategoryController::class,'show'])->name('category.show');
-Route::delete('/category/{id}',[CategoryController::class,'destroy'])->name('category.destroy');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
+Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
