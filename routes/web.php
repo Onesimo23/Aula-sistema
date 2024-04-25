@@ -33,7 +33,6 @@ Route::get('detalhes/{id}', [UserController::class, 'create'])->name('detalhes')
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
-Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
-Route::post('/payments', [PaymentController::class, 'create'])->name('payments.create');
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
 
