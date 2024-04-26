@@ -259,6 +259,23 @@
                                                     </div>
                                                 </div>
 
+                                                {{--  --}}
+
+
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-md-3 col-form-label" for="category_id"> Categoria <span
+                                                            class="required">*</span></label>
+                                                    <div class="col-md-9">
+                                                        <select class="selectpicker" value="category_id" name="category_id">
+                                                            @foreach ($category as $value)
+                                                                <option value="{{ $value->id }}">{{ $value->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                            {{-- end --}}
+
                                                 <div class="uk-width-2-5@m uk-flex-last@m">
 
                                                     <div class="uk-card-default rounded text-center p-4">

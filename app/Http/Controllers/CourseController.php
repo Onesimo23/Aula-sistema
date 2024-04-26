@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Lessons;
 use App\Models\Module;
-use App\Models\Quizzs;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,8 +18,9 @@ class CourseController extends Controller
     {
         $module = Module::all();
         $user = User::all();
+        $category = Category::all();
         $course = Course::all();
-        return view('course.course', compact('module', 'user', 'course'));
+        return view('course.course', compact('module', 'user', 'course', 'category'));
     }
 
     public function addCourse()
@@ -44,9 +45,10 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-
+        $users = User::all();
         $course = Course::create([
             'user_id' => $request->input('user_id'),
+            'category_id' => $request->input('category_id'),
             'name' => $request->input('fname'),
             'description' => $request->description,
             'highlighted' => $request->input('highlighted'),
@@ -62,9 +64,6 @@ class CourseController extends Controller
         ]);
 
 
-
-        // $moduleID = $request->input('module_id');
-
         $lesson = Lessons::create([
             'module_id' => $module->id,
             'title' => $request->input('title_lesson'),
@@ -73,7 +72,7 @@ class CourseController extends Controller
             'platform' => $request->input('platform_name'),
             'video_link' => $request->input('video_link'),
         ]);
-        return view('dashboard', compact('course', 'module', 'lesson'));
+        return view('user.index', compact('course', 'module', 'lesson', 'users'));
 
     }
 
