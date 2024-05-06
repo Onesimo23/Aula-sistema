@@ -9,17 +9,27 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\CategoryController;
 
+
+Route::group(['middleware' => 'auth'], function () {
+    // Rotas comuns aqui
+
 Route::get('/', function () {
     return view('dashboard');
 });
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'authenticate']);
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register']);
-Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('/description', [UserController::class, 'description'])->name('description');
+
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:administrator']], function () {
+    // Rotas acessíveis apenas para administradores
+
+Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index');
 Route::put('/course/{id}', [CourseController::class, 'update'])->name('course.update');
 Route::get('/inscriptions', [InscriptionController::class, 'index'])->name('inscription.index');
@@ -40,9 +50,6 @@ Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
-
-
-
 //Rotas de Categorias
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
@@ -61,3 +68,18 @@ Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('ca
 Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
 Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:student']], function () {
+    // Rotas acessíveis apenas para estudantes
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:teacher']], function () {
+    // Rotas acessíveis apenas para professores
+});
+
+
+
+
+

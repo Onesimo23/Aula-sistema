@@ -561,7 +561,7 @@
                                     <li><a href="#">
                                             <i class="icon-feather-help-circle"></i> Help</a>
                                     </li>
-                                    <li><a href="page-login.html">
+                                    <li><a href="/logout">
                                             <i class="icon-feather-log-out"></i> Sing Out</a>
                                     </li>
                                 </ul>
