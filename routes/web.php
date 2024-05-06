@@ -10,7 +10,7 @@ use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\CategoryController;
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'guest'], function () {
     // Rotas comuns aqui
 
 Route::get('/', function () {
