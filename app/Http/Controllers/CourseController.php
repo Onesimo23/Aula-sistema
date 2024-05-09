@@ -58,20 +58,8 @@ class CourseController extends Controller
             'validate' => $request->validate,
         ]);
 
-        $module = Module::create([
-            'name' => $request->input('modulename'),
-            'course_id' => $course->id,
-        ]);
 
-
-        $lesson = Lessons::create([
-            'module_id' => $module->id,
-            'title' => $request->input('title_lesson'),
-            'description' => $request->input('description'),
-            'lesson_number' => $request->input('lesson_number'),
-            'platform' => $request->input('platform_name'),
-            'video_link' => $request->input('video_link'),
-        ]);
+      
         return view('user.index', compact('course', 'module', 'lesson', 'users'));
 
     }

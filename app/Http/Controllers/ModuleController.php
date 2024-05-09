@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class ModuleController extends Controller
@@ -12,7 +13,9 @@ class ModuleController extends Controller
      */
     public function index()
     {
-        //
+        $module = Module::all();
+        $course = Course::all();
+        return view('modules.index', compact('module', 'course'));
     }
 
     /**
@@ -28,7 +31,13 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course = Course::all();
+        $module = Module::create([
+            'course_id' => $request->input('course_id'),
+            'name' => $request->input('name'),
+        ]);
+
+        return view('modules.index', compact('course', 'module'));
     }
 
     /**

@@ -8,7 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\LessonsController;
+use App\Http\Controllers\ModuleController;
 
 Route::group(['middleware' => 'guest'], function () {
     // Rotas comuns aqui
@@ -16,6 +17,7 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('/', function () {
     return view('dashboard');
 });
+
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'authenticate']);
@@ -42,6 +44,10 @@ Route::put('/users/{user}', [UserController::class, 'update'])->name('users.upda
 Route::get('detalhes/{id}', [UserController::class, 'create'])->name('detalhes');
 
 Route::post('course', [CourseController::class, 'store'])->name('course.store');
+Route::post('module', [ModuleController::class, 'store'])->name('module.store');
+Route::get('/module', [ModuleController::class, 'index'])->name('module.index');
+Route::post('lesson', [LessonsController::class, 'store'])->name('lesson.store');
+Route::get('/lesson', [LessonsController::class, 'index'])->name('lesson.index');
 Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index');
 Route::put('/course/{id}', [CourseController::class, 'update'])->name('course.update');
 

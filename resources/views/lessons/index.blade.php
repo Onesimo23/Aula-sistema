@@ -66,7 +66,6 @@
                         <th scope="col">Nome</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Instrutor</th>
-                        <th scope="col">Preço</th>
                         <th scope="col">Acções</th>
                     </tr>
                 </thead>
@@ -74,14 +73,13 @@
 
 
                 <tbody class="list">
-                    @foreach ($course as $course)
+                    @foreach ($lesson as $lesson)
                     <tr>
 
-                        <td>{{ $course->picture }}</td>
-                        <td>{{ $course->name }}</td>
-                        <td>{{ $course->category_id}}</td>
-                        <td>{{ $course->user->name }}</td>
-                        <td>{{ $course->price}}</td>
+                        <td>{{ $lesson->module_id}}</td>
+                        <td>{{ $lesson->title}}</td>
+                        <td>{{ $lesson->lesson_number}}</td>
+                        <td>{{ $lesson->platform}}</td>
                         <td class="text-right">
                             <!-- Actions -->
                             <div class="actions ml-3">
@@ -108,7 +106,7 @@
         <div id="modal-example" uk-modal="">
             <div class="uk-modal-dialog uk-modal-body">
                 <h2 class="uk-modal-title">Novo Curso</h2>
-                <form id="user-form" method="POST" action="{{ route('course.store') }}">
+                <form id="user-form" method="POST" action="{{ route('lesson.store') }}">
                     @csrf
                     <div class="card">
                         <div class="card-header border-bottom-0 py-4">
@@ -127,64 +125,35 @@
                             <ul class="uk-switcher uk-margin" id="course-edit-tab">
 
                                 <li>
-
-                                    <div class="row">
-                                        <div class="col-xl-9 m-auto">
-
-                                            <div class="uk-width-2-5@m uk-flex-last@m">
-
-                                                <div class="uk-card-default rounded text-center p-4">
-                                                    <div class="uk-position-relative my-4">
-
-                                                        <div class="user-profile-photo  m-auto">
-                                                            <img id="profileImage" src="" alt="">
-                                                        </div>
-
-
-
-                                                        <div class="uk-position-center">
-                                                            <div uk-form-custom="">
-                                                                <input type="file" id="imageInput" name="picture">
-                                                                <span class="uk-link icon-feather-camera icon-medium text-black">
-                                                                </span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-9">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-md-3 col-form-label" for="course_id">Modulo<span class="required">*</span></label>
+                                                <div class="col-md-9">
+                                                    <select class="selectpicker" value="module_id" name="module_id">
+                                                        @foreach ($module as $value)
+                                                        <option value="{{ $value->id }}">{{ $value->name }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="course_title">Nome do
-                                                    Curso<span class="required">*</span></label>
+                                                <label class="col-md-3 col-form-label" for="title">titulo</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="fname" name="fname" placeholder="Digita o título do curso" value="" required="">
-                                                    <input type="hidden" id="course_name" name="course_name" value="">
+                                                    <textarea name="title" id="title" class="form-control" placeholder="..."></textarea>
                                                 </div>
                                             </div>
-
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label">Preço ($)</label>
-                                                <div class="col-md-9">
-                                                    <input type="number" name="price" id="price" class="form-control" placeholder="Digite o preço">
-                                                </div>
-                                            </div>
-
-                                            {{-- end --}}
-
 
                                         </div>
-                                    </div>
-
-
                                 </li>
-
 
                                 <li>
 
                                     <div class="row justify-content-center">
 
                                         <div class="col-xl-9 m-auto">
+
                                             <div class="form-group row mb-3">
                                                 <label class="col-md-3 col-form-label" for="short_description">Descrição</label>
                                                 <div class="col-md-9">
@@ -193,66 +162,28 @@
                                             </div>
 
                                             <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="course_title"> Estado do
-                                                    Curso <span class="required">*</span></label>
+                                                <label class="col-md-3 col-form-label" for="website_keywords">Nr da
+                                                    aula</label>
                                                 <div class="col-md-9">
-
-                                                    <select class="selectpicker" name="role" id="role">
-                                                        <option value="free"> Grátis </option>
-                                                        <option value="paid"> Pago </option>
-                                                    </select>
-
-                                                </div>
-                                            </div>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="course_title"> Em destaque
-                                                    <span class="required">*</span></label>
-                                                <div class="col-md-9">
-
-                                                    <select class="selectpicker" name="highlighted" id="highlighted">
-                                                        <option value="true">Sim</option>
-                                                        <option value="false"> Não </option>
-                                                    </select>
-
-                                                </div>
-                                            </div>
-                                            <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="course_title">
-                                                    Validade<span class="required">*</span></label>
-                                                <div class="col-md-9">
-
-                                                    <select class="selectpicker" name="validate" id="validate">
-                                                        <option value="lifetime"> Vitalício </option>
-                                                        <option value="one_year"> 1 ano</option>
-                                                    </select>
+                                                    <input type="number" class="form-control" id="lesson_number" name="lesson_number" data-role="tagsinput" style="width: 100%;">
 
                                                 </div>
                                             </div>
 
                                             <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="user_id"> Instrutor <span class="required">*</span></label>
+                                                <label class="col-md-3 col-form-label" for="website_keywords">Plataforma</label>
                                                 <div class="col-md-9">
-                                                    <select class="selectpicker" value="user_id" name="user_id">
-                                                        @foreach ($user as $value)
-                                                        <option value="{{ $value->id }}">{{ $value->name }}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
+                                                    <input type="text" class="form-control bootstrap-tag-input" id="platform_name" name="platform_name" data-role="tagsinput" style="width: 100%;">
+
                                                 </div>
                                             </div>
 
-                                            {{-- --}}
-
-
                                             <div class="form-group row mb-3">
-                                                <label class="col-md-3 col-form-label" for="category_id"> Categoria <span class="required">*</span></label>
+                                                <label class="col-md-3 col-form-label" for="website_keywords">Link da
+                                                    aula</label>
                                                 <div class="col-md-9">
-                                                    <select class="selectpicker" value="category_id" name="category_id">
-                                                        @foreach ($category as $value)
-                                                        <option value="{{ $value->id }}">{{ $value->name }}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
+                                                    <input type="text" class="form-control bootstrap-tag-input" id="video_link" name="video_link" data-role="tagsinput" style="width: 100%; ">
+
                                                 </div>
                                             </div>
                                         </div>

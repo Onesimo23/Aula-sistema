@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lessons;
+use App\Models\Module;
 use Illuminate\Http\Request;
 
 class LessonsController extends Controller
@@ -12,7 +13,9 @@ class LessonsController extends Controller
      */
     public function index()
     {
-        //
+        $module = Module::all();
+        $lesson = Lessons::all();
+        return view('lessons.index', compact('module', 'lesson'));
     }
 
     /**
@@ -28,7 +31,16 @@ class LessonsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $module = Module::all();
+        $lesson = Lessons::create([
+            'module_id' => $request->input('module_id'),
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'lesson_number' => $request->input('lesson_number'),
+            'platform' => $request->input('platform_name'),
+            'video_link' => $request->input('video_link'),
+        ]);
+        return view('lessons.index', compact('lesson', 'module'));
     }
 
     /**
