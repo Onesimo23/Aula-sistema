@@ -91,10 +91,6 @@ class CourseController extends Controller
             'validate' => $request->validate,
         ]);
 
-
-
-        return view('user.index', compact('course', 'module', 'lesson', 'users'));
-
         return view('user.index', compact('course', 'users'));
 
     }
