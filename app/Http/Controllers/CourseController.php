@@ -7,6 +7,7 @@ use App\Models\Lessons;
 use App\Models\Module;
 use App\Models\Category;
 use App\Models\User;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -26,6 +27,33 @@ class CourseController extends Controller
     public function addCourse()
     {
         return view('course.add');
+    }
+
+    public function generateReport(Request $request)
+    {
+        // Fetch data for the report (replace with your actual data retrieval logic)
+        $data = [
+            'user_id' =>$request->user_id,
+            'category_id' =>$request-> category_id,
+            'name' => $request->fname,
+            'description' => $request->description,
+            'highlighted' => $request->highlighted,
+            'picture' => $request->picture,
+            'price' => $request->price,
+            'role' => $request->role,
+            'validate' => $request->validate,
+        ];
+
+        // Load the Blade view with data
+        $pdf = PDF::loadView('pdf-export', $data);
+
+        // Optionally customize the PDF (refer to domPDF documentation for details)
+        // $pdf->setPaper('a4', 'landscape'); // Set paper size and orientation
+
+        // Choose the output method:
+        //   - download('filename.pdf'): Force download
+        //   - stream('filename.pdf'): Open in browser (may require browser support)
+        return $pdf->download('cursos_relatorio.pdf');
     }
     public function index()
     {
@@ -59,7 +87,7 @@ class CourseController extends Controller
         ]);
 
 
-      
+
         return view('user.index', compact('course', 'module', 'lesson', 'users'));
 
     }

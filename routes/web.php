@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth', 'checkrole:administrator']], function () 
 Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index');
 Route::put('/course/{id}', [CourseController::class, 'update'])->name('course.update');
+Route::get('/pdf-export', [CourseController::class, 'generateReport'])->name('geraPdf');
 Route::get('/inscriptions', [InscriptionController::class, 'index'])->name('inscription.index');
 Route::post('/inscriptions', [InscriptionController::class, 'store'])->name('inscription.store');
 Route::put('/inscriptionUp/{inscription}', [InscriptionController::class, 'update'])->name('inscription.update');
