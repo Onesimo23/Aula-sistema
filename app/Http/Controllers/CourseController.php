@@ -31,7 +31,12 @@ class CourseController extends Controller
     {
         //
     }
+    public function destaque()
+    {
+        $highlightedCourses = Course::where('highlighted', 'true')->get();
 
+        return view('course.destaque', compact('highlightedCourses'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -57,10 +62,7 @@ class CourseController extends Controller
             'role' => $request->role,
             'validate' => $request->validate,
         ]);
-
-
-      
-        return view('user.index', compact('course', 'module', 'lesson', 'users'));
+        return view('user.index', compact('course', 'users'));
 
     }
 

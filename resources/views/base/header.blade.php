@@ -75,10 +75,19 @@
             <div class="page-menu-inner" data-simplebar="">
                 <ul data-submenu-title="Browse">
                     <li><a href="{{route('category.index')}}"><i class="uil-play-circle"></i> <span> Categorias</span></a> </li>
-                    <li><a href="{{route('course.index')}}"><i class="uil-play-circle"></i> <span> Courses</span></a> </li>
-                    <li><a href="{{route('inscription.index')}}"><i class="uil-rss-interface"></i> <span> Inscriptions</span></a> </li>
 
+                    <li><a href="{{route('inscription.index')}}"><i class="uil-rss-interface"></i> <span> Inscrições</span></a> </li>
+                    <li class="active" <i class="icon-line-awesome-gg" ></i>
+                        <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Curso</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+
+                            <li><a href="{{route('course.index')}}"><i class="icon-feather-folder-plus"></i> <span> Cursos</span></a> </li>
+                            <li><a href="{{route('highlighted-courses')}}"><i class="icon-feather-edit-2"></i> <span> Cursos em Destaque</span></a> </li>
+                        </ul>
+                    </li>
+                    <li><a href="{{route('payment.index')}}"><i class="uil-rss-interface"></i> <span> Pagamentos</span></a> </li>
                 </ul>
+
             </div>
         </div>
 
