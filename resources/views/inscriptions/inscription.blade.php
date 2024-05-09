@@ -30,7 +30,7 @@
                     @csrf
                     <div>
                         <div class="uk-form-group">
-                            <label class="uk-form-label" for="user_id">Nome do usuário</label>
+                            <label class="uk-form-label" for="user_id">Nome do Inscrição</label>
                             <div class="uk-position-relative w-100">
                                 <span class="uk-form-icon">
                                     <i class="icon-feather-user"></i>
@@ -74,7 +74,7 @@
 
 
 
-        <h4 class="d-inline-block mb-0">Usuários</h4>
+        <h4 class="d-inline-block mb-0">Inscrições</h4>
         <div class="d-flex">
 
             <a href="#" class="btn btn-icon btn-hover  btn-circle" uk-tooltip="Search product">
@@ -118,7 +118,7 @@
         <thead>
             {{-- <th>Table Heading</th> --}}
             <tr>
-                <th scope="col">Nome do Usuário</th>
+                <th scope="col">Nome do Inscrição</th>
                 <th scope="col">Curso</th>
                 <th scope="col">Estado da Inscrição</th>
                 <th scope="col">Acções</th>
@@ -138,8 +138,10 @@
                     <div class="actions ml-3">
                         <a href="#" class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Ver detalhes">
                             <i class="uil-external-link-alt "></i> </a>
-                        <a href="#edit_modal" uk-toggle class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Edit">
-                            <i class="uil-pen "></i> </a>
+                            <a href="#edit_modal" class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Edit" data-id="{{ $inscription->id }}" uk-toggle>
+                                <i class="uil-pen"></i>
+                            </a>
+
                         <a href="#delete" uk-toggle class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Delete user">
                             <i class="uil-trash-alt text-danger"></i> </a>
                     </div>
@@ -152,23 +154,24 @@
 {{-- modal de editar --}}
 <div id="edit_modal" uk-modal="">
     <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Editar Usuarios</h2>
-        <form action="{{ route('inscription.update', $inscription) }}" method="POST">
+        <h2 class="uk-modal-title">Editar Inscrições</h2>
+        <form action="{{ route('inscription.update', ['inscription' => $inscription->id]) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="user_id">Nome do Usuário</label>
+                <label for="user_id">Nome do Inscrição</label>
                 <select class="form-control" id="user_id" name="user_id" required>
                     @foreach($user as $u)
-                        <option value="{{ $u->id }}" {{ $inscription->user_id == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
-                    @endforeach
+                    <option value="{{ $u->id }}" >{{ $u->name }}</option>
+                @endforeach
+
                 </select>
             </div>
             <div class="form-group">
                 <label for="course_id">Curso</label>
                 <select class="form-control" id="course_id" name="course_id" required>
                     @foreach($course as $c)
-                        <option value="{{ $c->id }}" {{ $inscription->course_id == $c->id ? 'selected' : '' }}>{{ $c->name }}</option>
+                        <option value="{{ $c->id }}" >{{ $c->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -185,7 +188,7 @@
     <div class="uk-modal-dialog uk-modal-body">
     <h1>Confirmação de Exclusão de Incrição</h1>
             <p>Você tem certeza que deseja excluir a inscrição?</p>
-            <form action="{{ route('inscription.destroy', $inscription->id) }}" method="POST">
+            <form action="" method="POST">
                 @csrf
                 @method('DELETE')
 
@@ -206,14 +209,13 @@
 
 
 <script>
-document.querySelector('#registerForm').addEventListener('submit', function(event) {
-    var currentDate = new Date().toISOString().split('T')[0];
-    document.getElementById('date_registration').value = currentDate;
+document.getElementById('edit_modal').addEventListener('show.uk.modal', function(event) {
+    var editModal = event.target;
+    var inscriptionId = editModal.dataset.inscriptionId;
+    var form = editModal.querySelector('form');
+
+    form.action = form.action.replace(/inscription\/\d+/, 'inscription/' + inscriptionId);
 });
 
-document.getElementById('edit_modal').addEventListener('show.uk.modal', function(event) {
-    var currentDate = new Date().toISOString().split('T')[0];
-    document.getElementById('date_registration_edit').value = currentDate;
-});
 
 </script>

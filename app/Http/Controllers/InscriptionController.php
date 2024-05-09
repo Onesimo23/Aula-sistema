@@ -51,36 +51,28 @@ class InscriptionController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *Inscription $inscription)
+
+    public function update(Request $request, Inscription $inscription)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'course_id' => 'required',
+            'date_registration' => 'required',
+            'status' => 'required'
+        ]);
+
+        dd($request->all());
+
+        $inscription->update([
+            'user_id' => $request->user_id,
+            'course_id' => $request->course_id,
+            'date_registration' => $request->date_registration,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('inscription.index')->with('success', 'Inscrição atualizada com sucesso.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Inscription $inscription)
-{
-    $request->validate([
-        'user_id' => 'required',
-        'course_id' => 'required',
-        'date_registration' => 'required',
-        'status' => 'required'
-    ]);
-
-
-    $inscription->update([
-        'user_id' => $request->user_id,
-        'course_id' => $request->course_id,
-        'date_registration' => $request->date_registration,
-        'status' => $request->status,
-    ]);
-    dd($request->all());
-
-    return redirect()->route('inscription.index')->with('success', 'Inscrição atualizada com sucesso.');
-}
 
     /**
      * Remove the specified resource from storage.
