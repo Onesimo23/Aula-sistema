@@ -29,8 +29,9 @@ class CourseController extends Controller
         return view('course.add');
     }
 
-    public function generateReport(Request $request)
+    public function generateReport(Request $request, $id)
     {
+        $course = Course::findOrFail($id);
         // Fetch data for the report (replace with your actual data retrieval logic)
         $data = [
             'user_id' =>$request->user_id,
@@ -53,7 +54,7 @@ class CourseController extends Controller
         // Choose the output method:
         //   - download('filename.pdf'): Force download
         //   - stream('filename.pdf'): Open in browser (may require browser support)
-        return $pdf->download('cursos_relatorio.pdf');
+        return $pdf->download('cursos_relatorio.pdf', compact('course'));
     }
     public function index()
     {
@@ -88,7 +89,7 @@ class CourseController extends Controller
 
 
 
-        return view('user.index', compact('course', 'module', 'lesson', 'users'));
+        return view('user.index', compact('course', 'users'));
 
     }
 
