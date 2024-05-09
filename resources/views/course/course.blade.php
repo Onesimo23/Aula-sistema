@@ -91,6 +91,8 @@
                                     <i class="uil-pen "></i> </a>
                                 <a href="#delete" uk-toggle class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Delete user">
                                     <i class="uil-trash-alt text-danger"></i> </a>
+                                    <a href="#pdf" uk-toggle class="btn btn-icon btn-hover btn-sm btn-circle" uk-tooltip="Pdf">
+                                    <i class="uil-trash-alt text-danger"></i> </a>
                                 <a href="#modal-example2" class="btn btn-icon btn-hover btn-sm btn-circle" uk-toggle="target: #target: #modal-example2" uk-tooltip="Add modules">
                                     <i class="uil-plus"></i>
                                 </a>
