@@ -136,7 +136,7 @@ class CourseController extends Controller
         return redirect()->route('course')->with('success', 'Course updated successfully!');
 
         //return redirect()->route('course', compact('course', 'module', 'lesson'));
-        //return view('course.course', compact('course', 'module', 'lesson'));
+        return view('course.course', compact('course', 'module', 'lesson'));
     }
 
     /**
