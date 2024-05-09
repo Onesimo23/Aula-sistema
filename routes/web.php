@@ -53,6 +53,7 @@ Route::post('lesson', [LessonsController::class, 'store'])->name('lesson.store')
 Route::get('/lesson', [LessonsController::class, 'index'])->name('lesson.index');
 Route::get('/course', [CourseController::class, 'getCourse'])->name('course.index');
 Route::put('/course/{id}', [CourseController::class, 'update'])->name('course.update');
+Route::post('/payment/approve/{id}', [PaymentController::class, 'approve'])->name('payment.approve');
 
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');

@@ -14,8 +14,8 @@
                     <nav id="breadcrumbs" class="mb-3">
                         <ul>
                             <li><a href="#"> <i class="uil-home-alt"></i> </a></li>
-                            <li><a href="#"> Sutdents </a></li>
-                            <li>Sutdents list</li>
+                            <li><a href="#"> Students </a></li> <!-- Corrigi o typo aqui -->
+                            <li>Students list</li>
                         </ul>
 
                     </nav>
@@ -25,7 +25,7 @@
                     <!-- Card header -->
                     <div class="card-header actions-toolbar border-0">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="d-inline-block mb-0">Sutdents</h4>
+                            <h4 class="d-inline-block mb-0">Students</h4> <!-- Corrigi o typo aqui -->
                             <div class="d-flex">
 
                                 <a href="#" class="btn btn-icon btn-hover  btn-circle" uk-tooltip="Search product">
@@ -47,8 +47,6 @@
                                         <li><a href="#">From Z-A</a></li>
                                     </ul>
                                 </div>
-
-
                                 <a href="#" class="btn btn-icon btn-hover  btn-circle" uk-tooltip="More">
                                     <i class="uil-ellipsis-h"></i>
                                 </a>
@@ -70,20 +68,29 @@
                         <table class="table align-items-center">
                             <thead>
                                 <tr>
-                                    <th scope="col">Curso</th>
-                                    <th scope="col">Valor</th>
-                                    <th scope="col">Estado</th>
+                                    <th scope="col">Course</th>
+                                    <th scope="col">Value</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th> <!-- Corrigi o typo aqui -->
                                 </tr>
                             </thead>
-
-                            @foreach ($payments as $payment)
-                            <tr>
-                            <td>{{ $payment->course->name }}</td>
-                            <td>{{ $payment->course->price }}</td>
-                            <td>{{ $payment->status }}</td>
-                            </tr>
+                            <tbody>
+                                @foreach ($payments as $payment)
+                                <tr>
+                                    <td>{{ $payment->course->name }}</td>
+                                    <td>{{ $payment->course->price }}</td>
+                                    <td>{{ $payment->status }}</td>
+                                    <td>
+                                        <form action="{{ route('payment.approve', $payment->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">Aprovar</button>
+                                        </form>
+                                    </td>
+                                </tr>
                                 @endforeach
-                        </table> <!-- Table -->
+                            </tbody>
+
+                        </table>
                     </div>
 
                 </div>
@@ -121,7 +128,8 @@
             })(window, document);
         </script>
 
-</div></body>
+    </div>
+</body>
 
 </html>
-@endsection()
+@endsection
