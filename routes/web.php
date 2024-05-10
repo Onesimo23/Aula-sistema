@@ -36,7 +36,7 @@ Route::get('/course', [CourseController::class, 'getCourse'])->name('course.inde
 Route::get('/destaque', [CourseController::class,  'destaque'])->name('highlighted-courses');
 
 Route::put('/course/{id}', [CourseController::class, 'update'])->name('course.update');
-Route::get('/pdf-export{id}', [CourseController::class, 'generateReport'])->name('geraPdf');
+Route::get('pdf-export{id}', [CourseController::class, 'exportPdf'])->name('geraPdf');
 Route::get('/inscriptions', [InscriptionController::class, 'index'])->name('inscription.index');
 Route::post('/inscriptions', [InscriptionController::class, 'store'])->name('inscription.store');
 Route::put('/inscriptionUp/{inscription}', [InscriptionController::class, 'update'])->name('inscription.update');

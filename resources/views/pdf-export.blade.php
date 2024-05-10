@@ -22,23 +22,23 @@
   <table class="table" id="table">
     <thead>
       <tr>
-        <th>Nr</th>
-        <th>Nome</th>
-        <th>Apelido</th>
-        <th>Data de Nascimento</th>
-        <th>E-mail</th>
         <th>Categoria</th>
-        <th>Vagas</th>
-        <th>Resultados</th>
-        <th>Submissão</th>
+        <th>Nome</th>
+        <th>Destaque</th>
+        <th>Validade</th>
+        <th>Preço</th>
+        <th>Estado</th>
+        <th>Data de Criaçao</th>
       </tr>
     </thead>
     <tbody>
-      @foreach ($course as $value)
+      @foreach($course as $value)
       <tr>
-        <td scope="row">{{$value->category_id()->name}}</td>
-          <td>{{$value->fname}}</td>
-          <td>{{$value->highlighted}}</td>
+          <td scope="hidden">{{$value->user_id}}</td>
+          <td>{{category_id}}</td>
+          <td>{{name}}</td>
+          <td>{{description}}</td>
+          <td scope="hidden">{{picture}}</td>
           <td>{{date('d-F-Y',strtotime($value->validate))}}</td>
           <td>{{$value->price}}</td>
           <td>{{$value->role}}</td>
@@ -47,3 +47,17 @@
       @endforeach
     </tbody>
   </table>
+  'user_id',
+        'category_id',
+        'name',
+        'description',
+        'highlighted',
+        'picture',
+        'price',
+        'role',
+        'validate',
+</br>
+</br>
+<p><strong> Cursos Onlines Unisave&copy; 2024</strong></p>
+
+
